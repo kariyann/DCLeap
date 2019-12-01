@@ -182,7 +182,7 @@ namespace Leap.Unity
             string XHMD = HMDWidth.text;
             string YHMD = HMDHeight.text;
 
-            int xHMD = int.Parse(XHMD);
+            int xHMD = int.Parse(XHMD);    //transform string HMD to integer in order to be saved as Int PlayerPref
             int yHMD = int.Parse(YHMD);
 
             PlayerPrefs.SetInt("HMD_width", xHMD);
