@@ -2,6 +2,8 @@
 ***********************
 WORK IN PROGRESS
 ***********************
+![Image of Yaktocat](https://github.com/kariyann/DCLeap/blob/master/DCLeap/Assets/DCLeap.png)
+
 <h2>Scenes</h2>
 There's three scenes in DCLeap :
 <ul>
