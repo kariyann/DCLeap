@@ -28,8 +28,13 @@ namespace Leap.Unity
             mesh=CubeSelector.GetComponent<MeshRenderer>();
         }
 
-        public void Enabler()
+        public void Enabler()  // this function is called each time the palm facing gesture is recognized, this allow to enable/disable features 
         {
+            /*
+             *GET VALUES SAVED BY USER 
+             * if user wants to use this kind of gesture, toggles checked in Main Menu = 1,
+             */
+
             int pinch = PlayerPrefs.GetInt("PinchClick");
             int index = PlayerPrefs.GetInt("IndexClick");
             int catAlign = PlayerPrefs.GetInt("CatAlign");
@@ -38,9 +43,8 @@ namespace Leap.Unity
             int recenter = PlayerPrefs.GetInt("Recenter");
             int ejection = PlayerPrefs.GetInt("Ejection");
 
-            mouseScript.enabled = !mouseScript.enabled;
-           // MouseVizualizer = !MouseVizualizer;
-            mesh.enabled = !mesh.enabled;
+            mouseScript.enabled = !mouseScript.enabled;   // enable/disable mouse script that control mouse cursor
+            mesh.enabled = !mesh.enabled;                 // enable/disable the cube's mesh, allow user to remember cursor state by showing red and green cube
 
             if(mesh.enabled == false)
             {
@@ -51,7 +55,7 @@ namespace Leap.Unity
                 RightClickCanvas.SetActive(true);
             }
 
-            if (pinch == 1)
+            if (pinch == 1)                                 // enable/disable pinch only if pinch option is ticked in the main menu
             {
                 pinchScript.enabled = !pinchScript.enabled;
             }
@@ -59,7 +63,7 @@ namespace Leap.Unity
             {
                 pinchScript.enabled = pinchScript.enabled;
             }
-            if (index == 1)
+            if (index == 1)                                 // enable/disable trigger only if trigger option is ticked in the main menu
             {
                 fingerScript.enabled = !fingerScript.enabled;
             }
@@ -68,7 +72,7 @@ namespace Leap.Unity
                 fingerScript.enabled = fingerScript.enabled;
             }
 
-            if (catAlign == 1)
+            if (catAlign == 1)                             // enable/disable coordinated with red/green cube visibility for thumb's up for catapult alignment only if gesture option is ticked in the main menu
             {
                 if (mesh.enabled == true)
                 {
@@ -80,7 +84,7 @@ namespace Leap.Unity
                 }
             }
 
-            if (catShoot == 1)
+            if (catShoot == 1)                             // enable/disable coordinated with red/green cube visibility for salute for catapult launch only if gesture option is ticked in the main menu
             {
                 if (mesh.enabled == true)
                 {
@@ -92,7 +96,7 @@ namespace Leap.Unity
                 }
             }
 
-            if (startUp == 1)
+            if (startUp == 1)                             // enable/disable coordinated with red/green cube visibility for index pointing to the sky for automatic startup only if gesture option is ticked in the main menu
             {
                 if (mesh.enabled == true)
                 {
@@ -104,7 +108,7 @@ namespace Leap.Unity
                 }
             }
 
-            if (recenter == 1)
+            if (recenter == 1)                            // enable/disable coordinated with red/green cube visibility for front grab for recentering view only if gesture option is ticked in the main menu
             {
                 if (mesh.enabled == true)
                 {
@@ -116,7 +120,7 @@ namespace Leap.Unity
                 }
             }
 
-            if (ejection == 1)
+            if (ejection == 1)                             // enable/disable coordinated with red/green cube visibility for ejection only if gesture option is ticked in the main menu
             {
                 if (mesh.enabled == true)
                 {
