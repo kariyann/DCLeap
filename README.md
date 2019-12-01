@@ -19,11 +19,14 @@ No script in this scene.
 <h3>DCLeap</h3>
 <ul>
 <li>Unity_SteamVR_Handler</li>
-</ul><ul>
-<li></li>
+<ul>
+<li>truc</li>
+<li>truc</li>
+<li>truc</li>
 </ul>
+<li>LoPoly Rigged Hand ***</li>
+</ul>
+
 <br/>WILL BE FILLED LATER
-* test
-* test 2 
-* test 3
+
 
