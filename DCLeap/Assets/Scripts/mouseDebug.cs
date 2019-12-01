@@ -11,16 +11,17 @@ namespace Leap.Unity
         public VirtualMouse virtualMouse;
         public TextMeshProUGUI mouseX;
         public TextMeshProUGUI mouseY;
+
         // Start is called before the first frame update
         void Start()
         {
-            float cursorPosX = virtualMouse.XLinearCalculation();
-            float cursorPosY = virtualMouse.YLinearCalculation();
+            float cursorPosX = virtualMouse.XLinearCalculation();   // get X coordinates from VirtualMouse.cs
+            float cursorPosY = virtualMouse.YLinearCalculation();   // get Y coordinates from VirtualMouse.cs
 
         }
 
         // Update is called once per frame
-        void Update()
+        void Update()    // convert coordinates from VirtualMouse.cs to string format in order to be shown in the debug text.box shown in the HMD (if debug is allowed in main menu
         {
             int cursorPosX = (int)virtualMouse.XLinearCalculation();
             int cursorPosY = (int)virtualMouse.YLinearCalculation();

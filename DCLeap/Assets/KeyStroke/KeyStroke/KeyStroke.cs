@@ -24,7 +24,7 @@ namespace Leap.Unity
             sim = new InputSimulator();
         }
        
-        public void RightMouseUp()
+       /* public void RightMouseUp()
         {
             sim.Mouse.RightButtonUp();
         }
@@ -42,7 +42,7 @@ namespace Leap.Unity
         public void LeftMouseUp()
         {
                sim.Mouse.LeftButtonUp();
-        }
+        }*/
 
         /* ----------------------------------------
           * Fx KEYS

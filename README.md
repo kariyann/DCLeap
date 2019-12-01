@@ -32,8 +32,13 @@ No script in this scene.
 <li>KnobScript.cs : used to calculate knob rotation</li>
 <li>PinchKnobEnabler.cs : call KnobScript.cs when pinch is detected</li>
 <li>PinchDetector.cs : core LeapMotion script detecting pinch gesture modified (line 134-135) to adjust pinch sensitivity set by user in main menu. Call activator and knob</li>
+<li>ExtendedFingerDetector.cs : core LeapMotion script detecting trigger gesture. Call activator to perform index clic</li>
 <li>FeaturesDisabler.cs : disable features in the DCLeap scene if toggle box are not ticked in the main menu</li>
 <li>InputsScript.cs : listen input keys combination to quit DCLeap scene and revert to main menu</li>
+<li>ClickManager.cs : allow clics methods regarding Playerprefs set in the main menu</li>
+<li>mouseDebug.cs : allow debug mouse screen coordinates in the HMD, if allog debug mouse is ticked in the main menu</li>
+<li>Keystroke.cs : create Key stroke functions used to perform Catapult alignment, ejection, etc...</li>
+<li>VirtualMouse.cs : calculate mouse coordinates regarding palm localposition. Get informations from environmentSet.cs (User32.dll to control mouse, user desktop screen resolution to avoid mouse going out of DCS VR window</li>
 </ul>
 
 <br/>WILL BE FILLED LATER

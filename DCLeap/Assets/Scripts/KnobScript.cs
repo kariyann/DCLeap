@@ -10,7 +10,6 @@ namespace Leap.Unity
         public HandModel myHand;
         public KeyStroke keystroke;
         public VirtualMouse mouseScript;
-        public MouseSleep mouseSleep;
         public InputSimulator sim;
         Coroutine co;
         float stored;

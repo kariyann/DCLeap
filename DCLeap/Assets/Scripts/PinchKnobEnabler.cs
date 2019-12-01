@@ -15,7 +15,6 @@ namespace Leap.Unity
 
         public void KnobEnd()
         {
-            //knob.KnobingEnd();
             knob.enabled = !knob.enabled;
         }
     }

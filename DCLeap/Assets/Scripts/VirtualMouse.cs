@@ -46,7 +46,6 @@ namespace Leap.Unity
             float xOffset =  3 * xHMD / 4;
             float deltaX = xSensitivity;
             float xLinCoef = (xHMD / (2.0f)) / (deltaX / 2 );
-           // float handLeapPosX = Hand.GetLeapHand().PalmPosition.x;      // current X position of hand in Unity's LeapMotion field of view
             float handLeapPosX = Hand.transform.localPosition.x;             // current X position of hand in Unity's LeapMotion field of view
             float cursorPosX = xLinCoef * handLeapPosX + xOffset;
             return cursorPosX;
@@ -59,7 +58,6 @@ namespace Leap.Unity
             float yOffset = yHMD / 2;
             float deltaY = ySensitivity;
             float yLinCoef = (yHMD / (2.0f)) / (deltaY / 2);
-            //float handLeapPosY = Hand.GetLeapHand().PalmPosition.y;      // current Y position of hand in Unity's LeapMotion field of view
             float handLeapPosY = Hand.transform.localPosition.y;         // current Y position of hand in Unity's LeapMotion field of view
             float cursorPosY = -yLinCoef * handLeapPosY + yOffset;
             return cursorPosY;
