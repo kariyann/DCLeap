@@ -131,7 +131,7 @@ namespace Leap.Unity {
         Vector3 axis;
         float angle;
         circleRotation.ToAngleAxis(out angle, out axis);
-        Utils.DrawCircle(centerPosition, axis, ActivateDistance * PlayerPrefs.GetFloat("Pinch sensitivity") , centerColor);
+        Utils.DrawCircle(centerPosition, axis, ActivateDistance * PlayerPrefs.GetFloat("Pinch sensitivity") , centerColor);               //added playerprefs float values to adapt pinch sensitivity
         Utils.DrawCircle(centerPosition, axis, DeactivateDistance * PlayerPrefs.GetFloat("Pinch sensitivity"), Color.blue);
       }
     }

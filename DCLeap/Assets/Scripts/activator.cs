@@ -9,7 +9,6 @@ namespace Leap.Unity {
         private PalmDirectionDetector palmDirectionDetector;
         private PinchDetector pinchDetector;
         public InputSimulator sim;
-       // public MouseSleep mouseSleep;    //************
         VirtualMouse mouseScript;
         Coroutine co;
 
@@ -19,18 +18,6 @@ namespace Leap.Unity {
             pinchDetector = GetComponent<PinchDetector>();
             sim = new InputSimulator();
         }
-
-       /* IEnumerator WaitLeft()    //*******
-        {
-            yield return new WaitForSeconds(0.2f);
-            sim.Mouse.LeftButtonDown();
-        }
-
-        IEnumerator WaitRight()    //*******
-        {
-            yield return new WaitForSeconds(0.2f);
-            sim.Mouse.RightButtonDown();
-        }*/
 
         public void PinchClickTypeSelectionDown()
         {
@@ -64,15 +51,11 @@ namespace Leap.Unity {
         {
             if (palmDirectionDetector.IsActive == false)         // if palm is not facing the helmet execute leftclick with trigger gesture
             {
-               // mouseSleep.Sleep();  //**********
-               // co = StartCoroutine(WaitLeft());   //*********
                 sim.Mouse.LeftButtonDown();
             }
 
             if (palmDirectionDetector.IsActive == true)         // if palm is facing the helmet execute rightclick with trigger gesture
             {
-              //  mouseSleep.Sleep();  //**********
-               // co = StartCoroutine(WaitRight());   //*********
                 sim.Mouse.RightButtonDown();
             }
         }
@@ -81,15 +64,11 @@ namespace Leap.Unity {
         {
             if (palmDirectionDetector.IsActive == false)
             {
-              //  StopAllCoroutines();  //**********
-              //  mouseSleep.Wake();
                 sim.Mouse.LeftButtonUp();                              
             }
 
             if (palmDirectionDetector.IsActive == true)
             {
-               // StopAllCoroutines();  //***********
-               // mouseSleep.Wake();
                 sim.Mouse.RightButtonUp();
             }
         }

@@ -7,21 +7,17 @@ namespace Leap.Unity
 
     public class RightClickVizualizor : MonoBehaviour
     {
-       // public Canvas TextContener;
-      //  private Canvas rightClickText;
         public GameObject BlueCube;
         MeshRenderer mesh;
 
         void Start()
         {
             mesh = BlueCube.GetComponent<MeshRenderer>();
-        //    rightClickText = TextContener.GetComponent<Canvas>();
         }
 
-        public void TextEnabler()
+        public void TextEnabler()            //Text beacuse of legacy version, text has been replaced by a blue cube
         {
             mesh.enabled = !mesh.enabled;
-          //  rightClickText.enabled = !rightClickText.enabled;
         }
     }
 }
