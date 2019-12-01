@@ -18,23 +18,23 @@ namespace Leap.Unity
         {
             if (RawKeyInput.IsKeyDown(RawKey.Escape) && RawKeyInput.IsKeyDown(RawKey.LeftControl))
             {
-                Quit.UnLoadVirtualMouse();
+                Quit.UnLoadVirtualMouse();        //call SceneManaging.cs UnLoadVirtualMouse() method
             }         
         }
 
         void Start()
         {
-            RawKeyInput.Start(workInBackground);
+            RawKeyInput.Start(workInBackground);    //launch RawKeyInput listener
         }
 
         void Update()
         {
-            Escape();
+            Escape();                               //listen to LCTRL + ESCAPE press to quit DCLeap Scene
         }
 
         private void OnApplicationQuit()
         {
-            RawKeyInput.Stop();
+            RawKeyInput.Stop();                     //On DCLeap quit, terminate the listener
         }
     }
 }

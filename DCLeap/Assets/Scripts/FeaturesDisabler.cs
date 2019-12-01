@@ -18,7 +18,11 @@ namespace Leap.Unity
         public GameObject EjectionOverhead;
         public GameObject Ejection;
 
-        // Start is called before the first frame update
+        /*******************************************
+         * ALLOW FEATURES MANAGEMENT
+         * Get playersprefs values and if these are null, feature is not launched in DCLeap scene
+         *******************************************/
+
         void Start()
         {
             int debugText = PlayerPrefs.GetInt("DebugText");

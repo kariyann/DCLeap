@@ -20,9 +20,9 @@ No script in this scene.
 <ul>
 <li>Unity_SteamVR_Handler</li>
 <ul>
-<li>truc</li>
-<li>truc</li>
-<li>truc</li>
+<li>SceneManaging.cs : to manage scenes switches</li>
+<li>FeaturesDisabler.cs : disable features in the DCLeap scene if toggle box are not ticked in the main menu</li>
+<li>InputsScript.cs : listen input keys combination to quit DCLeap scene and revert to main menu</li>
 </ul>
 <li>LoPoly Rigged Hand ***</li>
 </ul>

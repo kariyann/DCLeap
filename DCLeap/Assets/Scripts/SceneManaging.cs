@@ -32,8 +32,7 @@ namespace Leap.Unity
         }
 
         public void VirtualMouseEnd()
-        {
-            
+        {         
             Application.Quit();
         }
     }
