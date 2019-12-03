@@ -9,9 +9,7 @@ namespace Leap.Unity
     {
         public HandModel myHand;
         public KeyStroke keystroke;
-        public VirtualMouse mouseScript;
         public InputSimulator sim;
-        Coroutine co;
         float stored;
 
         void Start()
@@ -28,6 +26,7 @@ namespace Leap.Unity
 
         public void Knobing()
         {
+          //  myHand.transform.localPosition = handPos;                                     //freeze hand transform movement to avoid parasite knob beahaviour such as increse / decrease when hand go up or down
             float knobSensitivity = PlayerPrefs.GetFloat("Knob sensitivity");
             float deltaf = (RollVelocity() - stored) * 100 * knobSensitivity;         // this calculate the angular velocity needed to determine how many "scroll clicks"
             stored = RollVelocity();                             

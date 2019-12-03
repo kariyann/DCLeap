@@ -647,7 +647,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myHand: {fileID: 128588187}
   keystroke: {fileID: 128588199}
-  mouseScript: {fileID: 128588195}
 --- !u!114 &128588197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -661,6 +660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knob: {fileID: 128588196}
+  mouseScript: {fileID: 128588195}
 --- !u!114 &128588199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2135,7 +2135,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 288
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 1694192660}
+  m_TargetTexture: {fileID: 946084512}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -2219,7 +2219,7 @@ MonoBehaviour:
   steamVRHandlerPrefab: {fileID: 1513475555}
   autoUpdateOverlay: 1
   simulateInEditor: 0
-  overlayTexture: {fileID: 1694192660}
+  overlayTexture: {fileID: 946084512}
   cameraForTexture: {fileID: 649517192}
   renderTexWidthOverride: 0
   renderTexHeightOverride: 0
@@ -2464,6 +2464,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29207d17cdd06e84d9fecbdef2401c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!84 &946084512
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Overlay RenderTexture
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 417
+  m_Height: 633
+  m_AntiAliasing: 8
+  m_MipCount: -1
+  m_DepthFormat: 2
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 2
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!4 &952724203
 Transform:
   m_ObjectHideFlags: 0
@@ -5036,41 +5071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80964c0e330dba84db15ca22f7f3e794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!84 &1694192660
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Overlay RenderTexture
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 417
-  m_Height: 633
-  m_AntiAliasing: 8
-  m_MipCount: -1
-  m_DepthFormat: 2
-  m_ColorFormat: 8
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 2
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1719559052
 GameObject:
   m_ObjectHideFlags: 0
@@ -7291,7 +7291,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myHand: {fileID: 2023909798}
   keystroke: {fileID: 2023909806}
-  mouseScript: {fileID: 2023909799}
 --- !u!114 &2023909805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7367,6 +7366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knob: {fileID: 2023909804}
+  mouseScript: {fileID: 2023909799}
 --- !u!1 &2031658627
 GameObject:
   m_ObjectHideFlags: 0
