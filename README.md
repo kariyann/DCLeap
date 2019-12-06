@@ -3,6 +3,7 @@
 WORK IN PROGRESS
 ***********************
 Latest Realease : https://github.com/kariyann/DCLeap/tree/master/DCLeap/LatestRelease
+Manual : 
 
 ![Image of Yaktocat](https://github.com/kariyann/DCLeap/blob/master/DCLeap/Assets/DCLeap.png)
 
@@ -16,7 +17,7 @@ There's three scenes in DCLeap :
 <h2>Scripts dependancies</h2>
 <h3>Main Menu</h3>
 <ul>
-<li>SavedDatas.cs is used to set and saved users settings. These settings are needed by DCLeap scene</li>
+<li>SavedDatas.cs is used to set and save users settings. These settings are needed by DCLeap scene</li>
 </ul>
 <h3>Help Menu</h3>
 No script in this scene.
