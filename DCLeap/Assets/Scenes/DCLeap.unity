@@ -2120,7 +2120,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 288
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 2050285803}
+  m_TargetTexture: {fileID: 1457876388}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -2204,7 +2204,7 @@ MonoBehaviour:
   steamVRHandlerPrefab: {fileID: 1513475555}
   autoUpdateOverlay: 1
   simulateInEditor: 0
-  overlayTexture: {fileID: 2050285803}
+  overlayTexture: {fileID: 1457876388}
   cameraForTexture: {fileID: 649517192}
   renderTexWidthOverride: 0
   renderTexHeightOverride: 0
@@ -4296,6 +4296,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417887759}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!84 &1457876388
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Overlay RenderTexture
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 417
+  m_Height: 633
+  m_AntiAliasing: 8
+  m_MipCount: -1
+  m_DepthFormat: 2
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 2
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1488925790
 GameObject:
   m_ObjectHideFlags: 0
@@ -4340,6 +4375,7 @@ GameObject:
   - component: {fileID: 1513475558}
   - component: {fileID: 1513475559}
   - component: {fileID: 1513475560}
+  - component: {fileID: 1513475557}
   m_Layer: 0
   m_Name: Unity_SteamVR_Handler
   m_TagString: Untagged
@@ -4390,6 +4426,18 @@ MonoBehaviour:
   onDashboardClose:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1513475557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513475555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3840ded8f289f4a816b53302430298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1513475558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7472,41 +7520,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2031658627}
   m_CullTransparentMesh: 0
---- !u!84 &2050285803
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Overlay RenderTexture
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 417
-  m_Height: 633
-  m_AntiAliasing: 8
-  m_MipCount: -1
-  m_DepthFormat: 2
-  m_ColorFormat: 8
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 2
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &2115714076
 PrefabInstance:
   m_ObjectHideFlags: 0

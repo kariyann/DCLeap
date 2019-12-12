@@ -18,25 +18,25 @@ namespace Leap.Unity {
   /// be used to detect pinch gestures that the hand makes.
   /// </summary>
   /// 
+  
 
 
-
-  public class PinchDetector : AbstractHoldDetector {
+    public class PinchDetector : AbstractHoldDetector {
     protected const float MM_TO_M = 0.001f;
 
-    [Tooltip("The distance at which to enter the pinching state.")]
-    [Header("Distance Settings")]
+       /* [Tooltip("The distance at which to enter the pinching state.")]
+        [Header("Distance Settings")]
+        [MinValue(0)]
+        [Units("meters")]
+        [FormerlySerializedAs("_activatePinchDist")]*/
+        // public float ActivateDistance = .03f; //meters       ************** voir si meilleur action sur la sensib
+
+   /* [Tooltip("The distance at which to leave the pinching state.")]
     [MinValue(0)]
     [Units("meters")]
-    [FormerlySerializedAs("_activatePinchDist")]
-    public float ActivateDistance = .03f; //meters
-    [Tooltip("The distance at which to leave the pinching state.")]
-    [MinValue(0)]
-    [Units("meters")]
-    [FormerlySerializedAs("_deactivatePinchDist")]
-    public float DeactivateDistance = .04f; //meters
-
-
+    [FormerlySerializedAs("_deactivatePinchDist")]*/
+    //public float DeactivateDistance = .04f; //meters     *************** si ligne 32 modifiée, alors ligne32 valeur +0.005f
+    
     public bool IsPinching { get { return this.IsHolding; } }
     public bool DidStartPinch { get { return this.DidStartHold; } }
     public bool DidEndPinch { get { return this.DidRelease; } }
@@ -49,8 +49,12 @@ namespace Leap.Unity {
     protected Vector3 _pinchPos;
     protected Quaternion _pinchRotation;
 
-    protected virtual void OnValidate() {
-      ActivateDistance = Mathf.Max(0, ActivateDistance);
+       
+        protected virtual void OnValidate() {
+          float ActivateDistance = PlayerPrefs.GetFloat("Activation sensitivity");            //************
+         float DeactivateDistance = ActivateDistance - 0.005f;    //*****************
+
+        ActivateDistance = Mathf.Max(0, ActivateDistance);
       DeactivateDistance = Mathf.Max(0, DeactivateDistance);
 
       //Activate value cannot be less than deactivate value
@@ -66,7 +70,9 @@ namespace Leap.Unity {
     }
 
     protected override void ensureUpToDate() {
-      if (Time.frameCount == _lastUpdateFrame) {
+            float ActivateDistance = PlayerPrefs.GetFloat("Activation sensitivity");            //************
+            float DeactivateDistance = ActivateDistance - 0.005f;    //*****************
+            if (Time.frameCount == _lastUpdateFrame) {
         return;
       }
       _lastUpdateFrame = Time.frameCount;
@@ -110,7 +116,9 @@ namespace Leap.Unity {
 
 #if UNITY_EDITOR
         protected override void OnDrawGizmos () {
-      if (ShowGizmos && _handModel != null && _handModel.IsTracked) {
+            float ActivateDistance = PlayerPrefs.GetFloat("Activation sensitivity");            //************
+            float DeactivateDistance = ActivateDistance - 0.005f;    //*****************
+            if (ShowGizmos && _handModel != null && _handModel.IsTracked) {
         Color centerColor = Color.clear;
         Vector3 centerPosition = Vector3.zero;
         Quaternion circleRotation = Quaternion.identity;

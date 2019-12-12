@@ -28,6 +28,8 @@ namespace Leap.Unity
         float sensitivity;
         public Slider KnobSensitivity;
         float knobSensitivity;
+        public Slider PinchActivation;
+        float activationSensitivity;
 
         public Toggle CatAlign;
         int catAlignValue;
@@ -176,6 +178,9 @@ namespace Leap.Unity
             sensitivity = PinchSensitivity.value;
             PlayerPrefs.SetFloat("Pinch sensitivity", sensitivity);
 
+            activationSensitivity = PinchActivation.value;
+            PlayerPrefs.SetFloat("Activation sensitivity", activationSensitivity);
+
             knobSensitivity = KnobSensitivity.value;
             PlayerPrefs.SetFloat("Knob sensitivity", knobSensitivity);
 
@@ -207,6 +212,7 @@ namespace Leap.Unity
             float ySensitivity = PlayerPrefs.GetFloat("YSensitivity");
             float sensitivity = PlayerPrefs.GetFloat("Pinch sensitivity");
             float knobSensitivity = PlayerPrefs.GetFloat("Knob sensitivity");
+            float activationSensitivity = PlayerPrefs.GetFloat("Activation sensitivity");
             int catAlign = PlayerPrefs.GetInt("CatAlign");
             int catShoot = PlayerPrefs.GetInt("CatShoot");
             int ejectionValue = PlayerPrefs.GetInt("Ejection");
@@ -239,6 +245,12 @@ namespace Leap.Unity
                 knobSensitivity = 2.0f;
             }
             KnobSensitivity.value = knobSensitivity;
+
+            if(activationSensitivity == 0)
+            {
+                activationSensitivity = 0.03f;
+            }
+            PinchActivation.value = activationSensitivity;
 
             /*------------------------------------------------------------------------------------------------------------------------------------
              * Set resolutions saved values
