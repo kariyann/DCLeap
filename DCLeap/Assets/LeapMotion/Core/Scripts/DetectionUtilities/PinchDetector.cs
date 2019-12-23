@@ -52,7 +52,7 @@ namespace Leap.Unity {
        
         protected virtual void OnValidate() {
           float ActivateDistance = PlayerPrefs.GetFloat("Activation sensitivity");            //************
-         float DeactivateDistance = ActivateDistance - 0.005f;    //*****************
+         float DeactivateDistance = ActivateDistance + 0.01f;    //*****************
 
         ActivateDistance = Mathf.Max(0, ActivateDistance);
       DeactivateDistance = Mathf.Max(0, DeactivateDistance);
@@ -71,7 +71,7 @@ namespace Leap.Unity {
 
     protected override void ensureUpToDate() {
             float ActivateDistance = PlayerPrefs.GetFloat("Activation sensitivity");            //************
-            float DeactivateDistance = ActivateDistance - 0.005f;    //*****************
+            float DeactivateDistance = ActivateDistance + 0.01f;    //*****************
             if (Time.frameCount == _lastUpdateFrame) {
         return;
       }
@@ -117,7 +117,7 @@ namespace Leap.Unity {
 #if UNITY_EDITOR
         protected override void OnDrawGizmos () {
             float ActivateDistance = PlayerPrefs.GetFloat("Activation sensitivity");            //************
-            float DeactivateDistance = ActivateDistance - 0.005f;    //*****************
+            float DeactivateDistance = ActivateDistance + 0.01f;    //*****************
             if (ShowGizmos && _handModel != null && _handModel.IsTracked) {
         Color centerColor = Color.clear;
         Vector3 centerPosition = Vector3.zero;

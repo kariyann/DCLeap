@@ -16,7 +16,7 @@ namespace Leap.Unity
 
         private void Escape()
         {
-            if (RawKeyInput.IsKeyDown(RawKey.Escape) && RawKeyInput.IsKeyDown(RawKey.LeftControl))
+            if (RawKeyInput.IsKeyDown(RawKey.Escape) && RawKeyInput.IsKeyDown(RawKey.LeftControl))    //If LCTRL + ESCAPE pressed
             {
                 Quit.UnLoadVirtualMouse();        //call SceneManaging.cs UnLoadVirtualMouse() method
             }         
