@@ -566,13 +566,15 @@ namespace Leap.Unity
         {
             LSHIFT_KeyDown();
             StartCoroutine(U_DelayedKeyDown());
+            StopAllCoroutines(); // ***
         }
 
         public void LSHIFT_U_Release()
         {
             U_KeyUp();
             StartCoroutine(LSHIFT_DelayedKeyUp());
-            LSHIFT_KeyUp();
+           // LSHIFT_KeyUp();
+            StopAllCoroutines(); // ***
         }
 
       /*  //LWIN + HOME
