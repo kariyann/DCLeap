@@ -24,7 +24,8 @@ namespace Leap.Unity
             start.RCTRL_KeyUp();
             yield return new WaitForSeconds(0.1f);
             start.LCTRL_KeyUp();
-            co = StartCoroutine(Timer());
+            //co = StartCoroutine(Timer());
+            StopAllCoroutines(); // ******
         }
 
         public void EngineStartUp()
@@ -34,8 +35,8 @@ namespace Leap.Unity
 
         public void CancelStartUp()
         {
-            start.RCTRL_KeyUp();
-            start.LCTRL_KeyUp();
+            start.RCTRL_KeyUp();   // avoid parasite comportement if RCTRL is seen as down after executing Timer()
+            start.LCTRL_KeyUp();  // avoid parasite comportement if LCTRL is seen as down after executing Timer()
             StopAllCoroutines();
         }
     }

@@ -23,11 +23,12 @@ namespace Leap.Unity
         {
             sim = new InputSimulator();
         }
-       
+
         /* ----------------------------------------
           * Fx KEYS
           -----------------------------------------*/
-        //Press F1
+        /*
+            //Press F1
             public void F1_KeyDown()
             {
                 sim.Keyboard.KeyDown(VirtualKeyCode.F1);
@@ -306,31 +307,7 @@ namespace Leap.Unity
                 yield return new WaitForSeconds(0.2f);
                 sim.Keyboard.KeyUp(VirtualKeyCode.OEM_5);
             }
-
-      /*  //Press LWIN
-        public void LWIN_KeyDown()
-        {
-            sim.Keyboard.KeyDown(VirtualKeyCode.LWIN);
-        }
-        public void LWIN_KeyUp()
-        {
-            sim.Keyboard.KeyUp(VirtualKeyCode.LWIN);
-        }
-        public void LWIN_Press()
-        {
-            sim.Keyboard.KeyPress(VirtualKeyCode.LWIN);
-        }
-        IEnumerator LWIN_DelayedKeyDown()
-        {
-            yield return new WaitForSeconds(0.2f);
-            sim.Keyboard.KeyDown(VirtualKeyCode.LWIN);
-        }
-
-        IEnumerator LWIN_DelayedKeyUp()
-        {
-            yield return new WaitForSeconds(0.2f);
-            sim.Keyboard.KeyUp(VirtualKeyCode.LWIN);
-        }*/
+        */
 
         //Press HOME
         public void HOME_KeyDown()
@@ -378,13 +355,11 @@ namespace Leap.Unity
             {
                yield return new WaitForSeconds(0.2f);
                sim.Keyboard.KeyDown(VirtualKeyCode.LSHIFT);
-               StopAllCoroutines();    //**
             }
             IEnumerator LSHIFT_DelayedKeyUp()
             {
-               yield return new WaitForSeconds(0.2f);
+               yield return new WaitForSeconds(0.4f);  //***************
                sim.Keyboard.KeyUp(VirtualKeyCode.LSHIFT);
-               StopAllCoroutines();    //**
             }
         
         // RSHIFT
@@ -512,7 +487,7 @@ namespace Leap.Unity
             }
             IEnumerator U_DelayedKeyUp()
             {
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.3f);  //****************************
                 sim.Keyboard.KeyUp(VirtualKeyCode.VK_U);
             }
  
@@ -557,41 +532,44 @@ namespace Leap.Unity
                 yield return new WaitForSeconds(0.2f);
                 sim.Keyboard.KeyUp(VirtualKeyCode.VK_L);
             }
+            
+            IEnumerator CoroutineDestructor()
+            {
+                yield return new WaitForSeconds(0.5f);
+               StopAllCoroutines();
+            }
 
          /*--------------------------------------------------
          LSHIFT MODIFIED KEYSTROKE
          ------------------------------------------------ */
+
+            IEnumerator CatShoot()
+        {
+            sim.Keyboard.KeyDown(VirtualKeyCode.LSHIFT);
+            yield return new WaitForSeconds(0.1f);
+            sim.Keyboard.KeyDown(VirtualKeyCode.VK_U);
+            yield return new WaitForSeconds(0.1f);
+            sim.Keyboard.KeyUp(VirtualKeyCode.VK_U);
+            yield return new WaitForSeconds(0.1f);
+            sim.Keyboard.KeyUp(VirtualKeyCode.LSHIFT);
+            StopAllCoroutines();
+        }
+
+
         // LSHIFT  + U
         public void LSHIFT_U_Press()
         {
-            LSHIFT_KeyDown();
+            CatShoot();
+           /* LSHIFT_KeyDown();
             StartCoroutine(U_DelayedKeyDown());
-            StopAllCoroutines(); // ***
+            StartCoroutine(U_DelayedKeyUp()); // ******
+            StartCoroutine(LSHIFT_DelayedKeyUp());  // ********
+            StartCoroutine(CoroutineDestructor());  //*********/
         }
 
-        public void LSHIFT_U_Release()
-        {
-            U_KeyUp();
-            StartCoroutine(LSHIFT_DelayedKeyUp());
-           // LSHIFT_KeyUp();
-            StopAllCoroutines(); // ***
-        }
 
-      /*  //LWIN + HOME
-        public void LWIN_HOME_Press()
-        {
-            LWIN_KeyDown();
-            StartCoroutine(HOME_DelayedKeyDown());
-        }
-
-        public void LWIN_HOME_Release()
-        {
-            HOME_KeyUp();
-            StartCoroutine(LWIN_DelayedKeyUp());
-        }*/
-
-      // LCTRL  + E
-          public void LCTRL_E_Press()
+        // LCTRL  + E
+        public void LCTRL_E_Press()
           {
               LCTRL_KeyDown();
               StartCoroutine(E_DelayedKeyDown());

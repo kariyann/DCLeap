@@ -23,7 +23,8 @@ namespace Leap.Unity
             yield return new WaitForSeconds(0.1f);
             recenter.LSHIFT_KeyUp();
             yield return new WaitForSeconds(0.1f);
-            co = StartCoroutine(Timer());
+            //co = StartCoroutine(Timer());
+            StopAllCoroutines(); // **********
         }
 
         public void Recenter()
@@ -34,7 +35,7 @@ namespace Leap.Unity
         public void EndRecenter()
         {
             recenter.RCTRL_KeyUp();  // avoid parasite comportement if RCTRL is seen as down after executing Timer()
-            recenter.LSHIFT_KeyUp();  // avoid parasite comportement if RCTRL is seen as down after executing Timer()
+            recenter.LSHIFT_KeyUp();  // avoid parasite comportement if LSHIFT is seen as down after executing Timer()
             StopAllCoroutines();
         }
     }

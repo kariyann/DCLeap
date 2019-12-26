@@ -442,12 +442,12 @@ MonoBehaviour:
         m_CallState: 2
   Period: 0.1
   HandModel: {fileID: 128588187}
-  Thumb: 2
+  Thumb: 0
   Index: 1
-  Middle: 2
-  Ring: 2
-  Pinky: 2
-  MinimumExtendedCount: 0
+  Middle: 1
+  Ring: 1
+  Pinky: 1
+  MinimumExtendedCount: 1
   MaximumExtendedCount: 1
   ShowGizmos: 1
 --- !u!114 &128588189
@@ -542,8 +542,6 @@ MonoBehaviour:
   _handModel: {fileID: 128588187}
   ControlsTransform: 0
   ShowGizmos: 0
-  ActivateDistance: 0.02
-  DeactivateDistance: 0.025
 --- !u!114 &128588192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2120,7 +2118,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 288
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 1457876388}
+  m_TargetTexture: {fileID: 1550110924}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -2204,7 +2202,7 @@ MonoBehaviour:
   steamVRHandlerPrefab: {fileID: 1513475555}
   autoUpdateOverlay: 1
   simulateInEditor: 0
-  overlayTexture: {fileID: 1457876388}
+  overlayTexture: {fileID: 1550110924}
   cameraForTexture: {fileID: 649517192}
   renderTexWidthOverride: 0
   renderTexHeightOverride: 0
@@ -4296,41 +4294,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417887759}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!84 &1457876388
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Overlay RenderTexture
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 417
-  m_Height: 633
-  m_AntiAliasing: 8
-  m_MipCount: -1
-  m_DepthFormat: 2
-  m_ColorFormat: 8
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 2
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1488925790
 GameObject:
   m_ObjectHideFlags: 0
@@ -4504,6 +4467,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29207d17cdd06e84d9fecbdef2401c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!84 &1550110924
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Overlay RenderTexture
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 417
+  m_Height: 633
+  m_AntiAliasing: 8
+  m_MipCount: -1
+  m_DepthFormat: 2
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 2
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1583062727
 GameObject:
   m_ObjectHideFlags: 0
@@ -5008,17 +5006,6 @@ MonoBehaviour:
       callback:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 1670029678}
-            m_MethodName: LSHIFT_U_Release
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
           - m_Target: {fileID: 1670029675}
             m_MethodName: CatapultShootTextEnabler
             m_Mode: 1
@@ -7145,8 +7132,6 @@ MonoBehaviour:
   _handModel: {fileID: 2023909798}
   ControlsTransform: 0
   ShowGizmos: 0
-  ActivateDistance: 0.02
-  DeactivateDistance: 0.025
 --- !u!114 &2023909797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7331,11 +7316,11 @@ MonoBehaviour:
         m_CallState: 2
   Period: 0.1
   HandModel: {fileID: 2023909798}
-  Thumb: 2
+  Thumb: 0
   Index: 1
-  Middle: 2
-  Ring: 2
-  Pinky: 2
+  Middle: 1
+  Ring: 1
+  Pinky: 1
   MinimumExtendedCount: 1
   MaximumExtendedCount: 1
   ShowGizmos: 1
