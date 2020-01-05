@@ -42,12 +42,13 @@ namespace Leap.Unity
         public float XLinearCalculation()
         {
             float xSensitivity = PlayerPrefs.GetFloat("XSensitivity");
-            int xHMD = Screen.currentResolution.width;
+            int screenW = Screen.currentResolution.width;
             //int xHMD = PlayerPrefs.GetInt("HMD_width");
             //float xOffset =  3 * xHMD / 4;
-            float xOffset = xHMD / 2;
-            float deltaX = xSensitivity;
-            float xLinCoef = (xHMD / (2.0f)) / (deltaX / 2 );
+            float xOffset = screenW / 2;
+            //float deltaX = xSensitivity;
+            //float xLinCoef = (screenW / (2.0f)) / (deltaX / 2 );
+            float xLinCoef = screenW / xSensitivity;
             float handLeapPosX = Hand.transform.localPosition.x;             // current X position of hand in Unity's LeapMotion field of view
             float cursorPosX = xLinCoef * handLeapPosX + xOffset;
             return cursorPosX;
@@ -56,11 +57,12 @@ namespace Leap.Unity
         public float YLinearCalculation()
         {
             float ySensitivity = PlayerPrefs.GetFloat("YSensitivity");
-            int yHMD = Screen.currentResolution.height;
+            int screenH = Screen.currentResolution.height;
             //int yHMD = PlayerPrefs.GetInt("HMD_height");
-            float yOffset = yHMD / 2;
-            float deltaY = ySensitivity;
-            float yLinCoef = (yHMD / (2.0f)) / (deltaY / 2);
+            float yOffset = screenH / 2;
+            //float deltaY = ySensitivity;
+            //float yLinCoef = (screenH / (2.0f)) / (deltaY / 2);
+            float yLinCoef = screenH / ySensitivity;
             float handLeapPosY = Hand.transform.localPosition.y;         // current Y position of hand in Unity's LeapMotion field of view
             float cursorPosY = -yLinCoef * handLeapPosY + yOffset;
             return cursorPosY;
