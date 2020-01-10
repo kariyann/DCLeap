@@ -3630,7 +3630,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'more
+  m_text: 'less
 
     sensitive'
   m_isRightToLeft: 0

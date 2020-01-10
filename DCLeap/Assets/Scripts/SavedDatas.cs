@@ -25,7 +25,7 @@ namespace Leap.Unity
         public Toggle Index;
         int indexValue;
        // public Slider PinchSensitivity; ****
-       // float sensitivity;
+      //  float sensitivity;
         public Slider KnobSensitivity;
         float knobSensitivity;
         public Slider PinchActivation;
@@ -175,8 +175,8 @@ namespace Leap.Unity
             ySensitivity = YSensitivity.value;
             PlayerPrefs.SetFloat("YSensitivity", ySensitivity);
 
-          //  sensitivity = PinchSensitivity.value;            **********
-          //  PlayerPrefs.SetFloat("Pinch sensitivity", sensitivity);   *****
+          //  sensitivity = PinchSensitivity.value;        //    **********
+          //  PlayerPrefs.SetFloat("Pinch sensitivity", sensitivity);   //*****
 
             activationSensitivity = PinchActivation.value;
             PlayerPrefs.SetFloat("Activation sensitivity", activationSensitivity);
@@ -210,7 +210,7 @@ namespace Leap.Unity
             int index = PlayerPrefs.GetInt("IndexClick");
             float xSensitivity = PlayerPrefs.GetFloat("XSensitivity");
             float ySensitivity = PlayerPrefs.GetFloat("YSensitivity");
-         //   float sensitivity = PlayerPrefs.GetFloat("Pinch sensitivity");     ***********
+           // float sensitivity = PlayerPrefs.GetFloat("Pinch sensitivity");    //// ***********
             float knobSensitivity = PlayerPrefs.GetFloat("Knob sensitivity");
             float activationSensitivity = PlayerPrefs.GetFloat("Activation sensitivity");
             int catAlign = PlayerPrefs.GetInt("CatAlign");

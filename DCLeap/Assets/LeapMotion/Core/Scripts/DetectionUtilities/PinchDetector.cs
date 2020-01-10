@@ -44,7 +44,14 @@ namespace Leap.Unity {
     protected Vector3 _pinchPos;
     protected Quaternion _pinchRotation;
 
-    protected virtual void OnValidate() {
+        private void Start()
+        {
+            ActivateDistance = 0.03f;
+            //ActivateDistance = PlayerPrefs.GetFloat("Activation sensitivity");
+            DeactivateDistance = ActivateDistance + 0.01f;
+        }
+
+        protected virtual void OnValidate() {
       ActivateDistance = Mathf.Max(0, ActivateDistance);
       DeactivateDistance = Mathf.Max(0, DeactivateDistance);
 

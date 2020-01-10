@@ -442,7 +442,7 @@ MonoBehaviour:
         m_CallState: 2
   Period: 0.1
   HandModel: {fileID: 128588187}
-  Thumb: 0
+  Thumb: 2
   Index: 1
   Middle: 2
   Ring: 2
@@ -519,7 +519,7 @@ MonoBehaviour:
         m_CallState: 2
   _handModel: {fileID: 128588187}
   ControlsTransform: 0
-  ShowGizmos: 1
+  ShowGizmos: 0
   ActivateDistance: 0.03
   DeactivateDistance: 0.04
 --- !u!114 &128588192
@@ -2098,7 +2098,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 288
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 2026534299}
+  m_TargetTexture: {fileID: 1340651170}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -2182,7 +2182,7 @@ MonoBehaviour:
   steamVRHandlerPrefab: {fileID: 1513475555}
   autoUpdateOverlay: 1
   simulateInEditor: 0
-  overlayTexture: {fileID: 2026534299}
+  overlayTexture: {fileID: 1340651170}
   cameraForTexture: {fileID: 649517192}
   renderTexWidthOverride: 0
   renderTexHeightOverride: 0
@@ -4017,6 +4017,41 @@ MonoBehaviour:
   MinimumExtendedCount: 0
   MaximumExtendedCount: 0
   ShowGizmos: 1
+--- !u!84 &1340651170
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Overlay RenderTexture
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 417
+  m_Height: 633
+  m_AntiAliasing: 8
+  m_MipCount: -1
+  m_DepthFormat: 2
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 2
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1383893840
 GameObject:
   m_ObjectHideFlags: 0
@@ -4340,7 +4375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   steamVRPollTime: 0.05
-  connectedToSteam: 0
+  connectedToSteam: 1
   hmdObject: {fileID: 415033107}
   rightTrackerObj: {fileID: 128588185}
   leftTrackerObj: {fileID: 2023909794}
@@ -7035,17 +7070,6 @@ MonoBehaviour:
   OnActivate:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2023909801}
-        m_MethodName: PinchClickTypeSelectionDown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2023909807}
         m_MethodName: KnobEnabler
         m_Mode: 1
@@ -7060,17 +7084,6 @@ MonoBehaviour:
   OnDeactivate:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2023909801}
-        m_MethodName: PinchClickTypeSelectionUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2023909807}
         m_MethodName: KnobEnd
         m_Mode: 1
@@ -7271,7 +7284,7 @@ MonoBehaviour:
         m_CallState: 2
   Period: 0.1
   HandModel: {fileID: 2023909798}
-  Thumb: 0
+  Thumb: 2
   Index: 1
   Middle: 2
   Ring: 2
@@ -7305,41 +7318,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knob: {fileID: 2023909804}
   mouseScript: {fileID: 2023909799}
---- !u!84 &2026534299
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Overlay RenderTexture
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 417
-  m_Height: 633
-  m_AntiAliasing: 8
-  m_MipCount: -1
-  m_DepthFormat: 2
-  m_ColorFormat: 8
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 2
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &2031658627
 GameObject:
   m_ObjectHideFlags: 0
