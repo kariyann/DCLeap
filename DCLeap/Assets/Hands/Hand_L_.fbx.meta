@@ -1,0 +1,148 @@
+fileFormatVersion: 2
+guid: 8aef0fa9681ca07448e18dd542d1a31b
+timeCreated: 1463421497
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature_Hand_L
+    100002: finger_index.01.L
+    100004: finger_index.02.L
+    100006: finger_index.03.L
+    100008: finger_index.03.L_end
+    100010: finger_middle.01.L
+    100012: finger_middle.02.L
+    100014: finger_middle.03.L
+    100016: finger_middle.03.L_end
+    100018: finger_pinky.01.L
+    100020: finger_pinky.02.L
+    100022: finger_pinky.03.L
+    100024: finger_pinky.03.L_end
+    100026: finger_ring.01.L
+    100028: finger_ring.02.L
+    100030: finger_ring.03.L
+    100032: finger_ring.03.L_end
+    100034: forearm.L
+    100036: forearm.L.003
+    100038: forearm.L.003_end
+    100040: hand.L
+    100042: Hand_L
+    100044: //RootNode
+    100046: palm.01.L
+    100048: palm.01.L.001
+    100050: palm.02.L
+    100052: palm.02.L.001
+    100054: palm.03.L
+    100056: palm.03.L.001
+    100058: palm.04.L
+    100060: palm.04.L.001
+    100062: thumb.01.L
+    100064: thumb.01.L.001
+    100066: thumb.02.L
+    100068: thumb.03.L
+    100070: thumb.03.L_end
+    400000: Armature_Hand_L
+    400002: finger_index.01.L
+    400004: finger_index.02.L
+    400006: finger_index.03.L
+    400008: finger_index.03.L_end
+    400010: finger_middle.01.L
+    400012: finger_middle.02.L
+    400014: finger_middle.03.L
+    400016: finger_middle.03.L_end
+    400018: finger_pinky.01.L
+    400020: finger_pinky.02.L
+    400022: finger_pinky.03.L
+    400024: finger_pinky.03.L_end
+    400026: finger_ring.01.L
+    400028: finger_ring.02.L
+    400030: finger_ring.03.L
+    400032: finger_ring.03.L_end
+    400034: forearm.L
+    400036: forearm.L.003
+    400038: forearm.L.003_end
+    400040: hand.L
+    400042: Hand_L
+    400044: //RootNode
+    400046: palm.01.L
+    400048: palm.01.L.001
+    400050: palm.02.L
+    400052: palm.02.L.001
+    400054: palm.03.L
+    400056: palm.03.L.001
+    400058: palm.04.L
+    400060: palm.04.L.001
+    400062: thumb.01.L
+    400064: thumb.01.L.001
+    400066: thumb.02.L
+    400068: thumb.03.L
+    400070: thumb.03.L_end
+    4300000: Hand_L
+    7400000: Armature_Hand_L|00
+    7400002: Hand_L|00
+    9500000: //RootNode
+    13700000: Hand_L
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

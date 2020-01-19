@@ -15,6 +15,14 @@ namespace Leap.Unity
         public Slider YSensitivity;
         float ySensitivity;
 
+        public Toggle ShowHands;
+        int showHandsValue;
+
+        public Slider XOffset;
+        int xOffset;
+        public Slider YOffset;
+        int yOffset;
+
         public Toggle DebugText;
         int debugTextValue;
         public Toggle DebugMouse;
@@ -146,6 +154,16 @@ namespace Leap.Unity
             /* ----------------------------------------------------------------------------------------
              * In this section we manage the variables saved in the registry keys in Computer\HKEY_CURRENT_USER\Software\Leap4DCS\DCLeap
              * ---------------------------------------------------------------------------------------*/
+            if (ShowHands.isOn == true)
+            {
+                showHandsValue = 1;
+                PlayerPrefs.SetInt("Show Hands", 1);
+            }
+            else
+            {
+                showHandsValue = 0;
+                PlayerPrefs.SetInt("Show Hands", 0);
+            }
 
             if (DebugText.isOn == true)
             {
@@ -175,8 +193,14 @@ namespace Leap.Unity
             ySensitivity = YSensitivity.value;
             PlayerPrefs.SetFloat("YSensitivity", ySensitivity);
 
-          //  sensitivity = PinchSensitivity.value;        //    **********
-          //  PlayerPrefs.SetFloat("Pinch sensitivity", sensitivity);   //*****
+            //  sensitivity = PinchSensitivity.value;        //    **********
+            //  PlayerPrefs.SetFloat("Pinch sensitivity", sensitivity);   //*****
+
+            xOffset = (int)XOffset.value;
+            PlayerPrefs.SetInt("XOffset", xOffset);
+
+            yOffset = (int)YOffset.value;
+            PlayerPrefs.SetInt("YOffset", yOffset);
 
             activationSensitivity = PinchActivation.value;
             PlayerPrefs.SetFloat("Activation sensitivity", activationSensitivity);
@@ -204,13 +228,17 @@ namespace Leap.Unity
              * -----------------------------------------------------------------------------------------------------------------------*/
             int Width = PlayerPrefs.GetInt("HMD_width");
             int Height = PlayerPrefs.GetInt("HMD_height");
+
+            int showHands = PlayerPrefs.GetInt("Show Hands");
             int debugText = PlayerPrefs.GetInt("DebugText");
             int debugMouse = PlayerPrefs.GetInt("DebugMouse");
             int pinch = PlayerPrefs.GetInt("PinchClick");
             int index = PlayerPrefs.GetInt("IndexClick");
             float xSensitivity = PlayerPrefs.GetFloat("XSensitivity");
             float ySensitivity = PlayerPrefs.GetFloat("YSensitivity");
-           // float sensitivity = PlayerPrefs.GetFloat("Pinch sensitivity");    //// ***********
+            int xOffset = PlayerPrefs.GetInt("XOffset");
+            int yOffset = PlayerPrefs.GetInt("YOffset");
+            // float sensitivity = PlayerPrefs.GetFloat("Pinch sensitivity");    //// ***********
             float knobSensitivity = PlayerPrefs.GetFloat("Knob sensitivity");
             float activationSensitivity = PlayerPrefs.GetFloat("Activation sensitivity");
             int catAlign = PlayerPrefs.GetInt("CatAlign");
@@ -233,6 +261,9 @@ namespace Leap.Unity
                 ySensitivity = 0.6f;
             }
             YSensitivity.value = ySensitivity;
+
+            XOffset.value = xOffset;
+            YOffset.value = yOffset;
 
          //   if (sensitivity == 0)         *************
          //   {
@@ -264,6 +295,12 @@ namespace Leap.Unity
             /*-------------------------------------------------------------------------------------------------------------------------------------
              * Set toggle boxes regarding saved data
              * -----------------------------------------------------------------------------------------------------------------------------------*/
+            if (showHands == 1)
+            {
+                ShowHands.isOn = true;
+            }
+            else ShowHands.isOn = false;
+
             if (debugText == 1)
             {
                 DebugText.isOn = true;

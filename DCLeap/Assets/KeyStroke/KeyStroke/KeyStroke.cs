@@ -581,7 +581,7 @@ namespace Leap.Unity
               StartCoroutine(LCTRL_DelayedKeyUp());
           }
 
-         public void EjectionCommand()
+       /*  public void EjectionCommand()
          {
             for (int i=0; i < 3;i++)
             {
@@ -589,6 +589,28 @@ namespace Leap.Unity
                 LCTRL_E_Release();
             }
             StopAllCoroutines();  //**
-         }
+         }*/
+
+        public void EjectionCommand()
+        {
+            int execution = 0;
+            float waitTime = 0.2f;
+            float counter = 0.0f;
+
+            sim.Keyboard.KeyDown(VirtualKeyCode.LCONTROL);
+
+            while (execution < 3)
+            {
+                if (counter > waitTime)
+                {
+                    sim.Keyboard.KeyPress(VirtualKeyCode.VK_E);
+                    counter = 0;
+                    execution++;
+                }
+                else counter += Time.deltaTime;
+            }
+
+            sim.Keyboard.KeyPress(VirtualKeyCode.LCONTROL);
+        }
     }
 }

@@ -18,6 +18,9 @@ namespace Leap.Unity
         public GameObject EjectionOverhead;
         public GameObject Ejection;
 
+        public GameObject LeftHand;
+        public GameObject RightHand;
+
         /*******************************************
          * ALLOW FEATURES MANAGEMENT
          * Get playersprefs values and if these are null, feature is not launched in DCLeap scene
@@ -25,6 +28,7 @@ namespace Leap.Unity
 
         void Start()
         {
+            int showHands = PlayerPrefs.GetInt("Show Hands");
             int debugText = PlayerPrefs.GetInt("DebugText");
             int debugMouse = PlayerPrefs.GetInt("DebugMouse");
             int catShoot = PlayerPrefs.GetInt("CatShoot");
@@ -32,6 +36,24 @@ namespace Leap.Unity
             int autoStartValue = PlayerPrefs.GetInt("AutoStart");
             int recenterValue = PlayerPrefs.GetInt("Recenter");
             int ejection = PlayerPrefs.GetInt("Ejection");
+
+            if (showHands == 1)    // if you want to show your hands, the playerprefs value stored is 1, so this function change the hands's layer to be shown in the overlay
+            {
+                LeftHand.layer = LayerMask.NameToLayer("mouseSide");
+                RightHand.layer = LayerMask.NameToLayer("mouseSide");
+
+                Transform childrenLeft = LeftHand.GetComponentInChildren<Transform>();
+                foreach (Transform go in childrenLeft)
+                {
+                    go.gameObject.layer = LayerMask.NameToLayer("mouseSide");
+                }
+
+                Transform childrenRight = RightHand.GetComponentInChildren<Transform>();
+                foreach (Transform go in childrenRight)
+                {
+                    go.gameObject.layer = LayerMask.NameToLayer("mouseSide");
+                }
+            }
 
             if (catShoot == 0)
             {
