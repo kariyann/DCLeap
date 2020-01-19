@@ -43,7 +43,6 @@ namespace Leap.Unity
       public int XOffset()
      {
             int userOffset = PlayerPrefs.GetInt("XOffset");
-        // int userOffset = 200;
          if (HandChoice.Handedness == Chirality.Left)
          {
              userOffset = -1 * userOffset;
@@ -83,7 +82,7 @@ namespace Leap.Unity
             //float yLinCoef = (screenH / (2.0f)) / (deltaY / 2);
             float yLinCoef = screenH / ySensitivity;
             float handLeapPosY = Hand.transform.localPosition.y;         // current Y position of hand in Unity's LeapMotion field of view
-            float cursorPosY = -yLinCoef * handLeapPosY + yOffset;
+            float cursorPosY = -yLinCoef * handLeapPosY + yOffset + YOffset();
             return cursorPosY;
         }
 
