@@ -3,7 +3,7 @@
 WORK IN PROGRESS
 ***********************
 Latest Realease : https://github.com/kariyann/DCLeap/tree/master/DCLeap/LatestRelease <br/>
-Manual : https://github.com/kariyann/DCLeap/blob/master/DCLeap/LatestRelease/DCLeap_Manual%20v1.0%20ENG.pdf
+Manual : https://github.com/kariyann/DCLeap/blob/master/DCLeap/LatestRelease/DCLeap_Manual.pdf
 
 ![Image of Yaktocat](https://github.com/kariyann/DCLeap/blob/master/DCLeap/Assets/DCLeap.png)
 
