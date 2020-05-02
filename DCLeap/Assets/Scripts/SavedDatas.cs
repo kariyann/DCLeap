@@ -7,8 +7,8 @@ namespace Leap.Unity
 {
     public class SavedDatas : MonoBehaviour
     {
-        public InputField HMDWidth;
-        public InputField HMDHeight;
+        // public InputField HMDWidth; 171
+        // public InputField HMDHeight; 171
 
         public Slider XSensitivity;
         float xSensitivity;
@@ -34,21 +34,30 @@ namespace Leap.Unity
         int indexValue;
        // public Slider PinchSensitivity; ****
       //  float sensitivity;
-        public Slider KnobSensitivity;
-        float knobSensitivity;
+        //public Slider KnobSensitivity;
+       // float knobSensitivity;
+
+        public Slider LHNeutral;
+        float lhNeutral;
+        public Slider RHNeutral;
+        float rhNeutral;
+
         public Slider PinchActivation;
         float activationSensitivity;
+       // public Slider KnobMethod;
+       // int knobMethod;
+
 
         public Toggle CatAlign;
-        int catAlignValue;
+        int catAlignValue; 
         public Toggle CatShoot;
         int catShootValue;
         public Toggle Ejection;
         int ejectionValue;
         public Toggle AutoStart;
         int autoStartValue;
-        public Toggle Recenter;
-        int recenterValue;
+        // public Toggle Recenter; 171
+        //int recenterValue; 171
 
         public void Saved()
         {
@@ -101,7 +110,7 @@ namespace Leap.Unity
             {
                 catAlignValue = 0;
                 PlayerPrefs.SetInt("CatAlign", 0);
-            }
+            }                           
 
             // record the value of catShoot if user want to use salute gesture to perform catapult shoot
             if (CatShoot.isOn == true)
@@ -140,7 +149,7 @@ namespace Leap.Unity
             }
 
             // record the value of recenter if user want to use both closed hand to recenter VR view
-            if (Recenter.isOn == true)
+           /* if (Recenter.isOn == true)
             {
                 recenterValue = 1;
                 PlayerPrefs.SetInt("Recenter", 1);
@@ -149,7 +158,7 @@ namespace Leap.Unity
             {
                 recenterValue = 0;
                 PlayerPrefs.SetInt("Recenter", 0);
-            }
+            }   171 ------------------------------------*/
 
             /* ----------------------------------------------------------------------------------------
              * In this section we manage the variables saved in the registry keys in Computer\HKEY_CURRENT_USER\Software\Leap4DCS\DCLeap
@@ -205,17 +214,25 @@ namespace Leap.Unity
             activationSensitivity = PinchActivation.value;
             PlayerPrefs.SetFloat("Activation sensitivity", activationSensitivity);
 
-            knobSensitivity = KnobSensitivity.value;
-            PlayerPrefs.SetFloat("Knob sensitivity", knobSensitivity);
+          //  knobSensitivity = KnobSensitivity.value;
+          //  PlayerPrefs.SetFloat("Knob sensitivity", knobSensitivity);
 
-            string XHMD = HMDWidth.text;
-            string YHMD = HMDHeight.text;
+            lhNeutral = LHNeutral.value;
+            PlayerPrefs.SetFloat("LH Neutral", lhNeutral);
+            rhNeutral = RHNeutral.value;
+            PlayerPrefs.SetFloat("RH Neutral", rhNeutral);
 
-            int xHMD = int.Parse(XHMD);    //transform string HMD to integer in order to be saved as Int PlayerPref
-            int yHMD = int.Parse(YHMD);
+            //knobMethod = (int)KnobMethod.value;
+            //PlayerPrefs.SetInt("Knob method", knobMethod);
 
-            PlayerPrefs.SetInt("HMD_width", xHMD);
-            PlayerPrefs.SetInt("HMD_height", yHMD);
+            // string XHMD = HMDWidth.text; 171
+            // string YHMD = HMDHeight.text; 171
+
+            /*  int xHMD = int.Parse(XHMD);    //transform string HMD to integer in order to be saved as Int PlayerPref
+              int yHMD = int.Parse(YHMD);     
+
+              PlayerPrefs.SetInt("HMD_width", xHMD);
+              PlayerPrefs.SetInt("HMD_height", yHMD);   171 -------------------*/
         }
 
         void Start()
@@ -226,8 +243,8 @@ namespace Leap.Unity
              * next we have to convert these integers to strings
              * and finaly fill the Input Fields with these strings
              * -----------------------------------------------------------------------------------------------------------------------*/
-            int Width = PlayerPrefs.GetInt("HMD_width");
-            int Height = PlayerPrefs.GetInt("HMD_height");
+           // int Width = PlayerPrefs.GetInt("HMD_width");   171
+           // int Height = PlayerPrefs.GetInt("HMD_height");   171
 
             int showHands = PlayerPrefs.GetInt("Show Hands");
             int debugText = PlayerPrefs.GetInt("DebugText");
@@ -239,13 +256,17 @@ namespace Leap.Unity
             int xOffset = PlayerPrefs.GetInt("XOffset");
             int yOffset = PlayerPrefs.GetInt("YOffset");
             // float sensitivity = PlayerPrefs.GetFloat("Pinch sensitivity");    //// ***********
-            float knobSensitivity = PlayerPrefs.GetFloat("Knob sensitivity");
+            //float knobSensitivity = PlayerPrefs.GetFloat("Knob sensitivity");
+            float lhNeutral = PlayerPrefs.GetFloat("LH Neutral");
+            float rhNeutral = PlayerPrefs.GetFloat("RH Neutral");
+
             float activationSensitivity = PlayerPrefs.GetFloat("Activation sensitivity");
-            int catAlign = PlayerPrefs.GetInt("CatAlign");
+            //  int knobMethod = PlayerPrefs.GetInt("Knob method");  171
+            int catAlign = PlayerPrefs.GetInt("CatAlign");  
             int catShoot = PlayerPrefs.GetInt("CatShoot");
             int ejectionValue = PlayerPrefs.GetInt("Ejection");
             int autoStartValue = PlayerPrefs.GetInt("AutoStart");
-            int recenterValue = PlayerPrefs.GetInt("Recenter");
+            //int recenterValue = PlayerPrefs.GetInt("Recenter");  171 
 
             /*-------------------------------------------------------------------------------------------------------------------------------------
              * Set default values if never saved
@@ -265,19 +286,34 @@ namespace Leap.Unity
             XOffset.value = xOffset;
             YOffset.value = yOffset;
 
+
          //   if (sensitivity == 0)         *************
          //   {
           //      sensitivity = 1.2f;
          //   }
           //  PinchSensitivity.value = sensitivity;
 
-            if (knobSensitivity == 0)
+           /* if (knobSensitivity == 0)
             {
                 knobSensitivity = 2.0f;
             }
-            KnobSensitivity.value = knobSensitivity;
+            KnobSensitivity.value = knobSensitivity;*/
 
-            if(activationSensitivity == 0)
+            if (lhNeutral == 0)
+            {
+                lhNeutral = 1.05f;
+            }
+            LHNeutral.value = lhNeutral;
+
+            if (rhNeutral == 0)
+            {
+                rhNeutral = -0.80f;
+            }
+            RHNeutral.value = rhNeutral;
+
+           // KnobMethod.value = knobMethod;
+
+            if (activationSensitivity == 0)
             {
                 activationSensitivity = 0.03f;
             }
@@ -286,11 +322,11 @@ namespace Leap.Unity
             /*------------------------------------------------------------------------------------------------------------------------------------
              * Set resolutions saved values
              * ----------------------------------------------------------------------------------------------------------------------------------*/
-            string StrxHMD = Width.ToString();
-            string StryHMD = Height.ToString();
+           // string StrxHMD = Width.ToString();   171
+           //  string StryHMD = Height.ToString();  171
 
-            HMDWidth.placeholder.GetComponent<Text>().text = StrxHMD;
-            HMDHeight.placeholder.GetComponent<Text>().text = StryHMD;
+           /* HMDWidth.placeholder.GetComponent<Text>().text = StrxHMD;
+            HMDHeight.placeholder.GetComponent<Text>().text = StryHMD;                   171 ------*/
 
             /*-------------------------------------------------------------------------------------------------------------------------------------
              * Set toggle boxes regarding saved data
@@ -329,7 +365,7 @@ namespace Leap.Unity
             {
                 CatAlign.isOn = true;
             }
-            else CatAlign.isOn = false;
+            else CatAlign.isOn = false;      
 
             if (catShoot == 1)
             {
@@ -349,11 +385,11 @@ namespace Leap.Unity
             }
             else AutoStart.isOn = false;
 
-            if (recenterValue == 1)
+           /* if (recenterValue == 1)
             {
                 Recenter.isOn = true;
             }
-            else Recenter.isOn = false;
+            else Recenter.isOn = false;         171 ------*/
         }
     }
 }

@@ -16,14 +16,14 @@ namespace Leap.Unity
         void Start()
         {
             float sensitivityValue = PinchSensitivity.value;
-            string value = sensitivityValue.ToString("0.0");
+            string value = sensitivityValue.ToString("0.00");
             SensitivityValue.text = value;
         }
 
         void Update()
         {
             float sensitivityValue = PinchSensitivity.value;
-            string value = sensitivityValue.ToString("0.0");
+            string value = sensitivityValue.ToString("0.00");
             SensitivityValue.text = value;
         }
     }

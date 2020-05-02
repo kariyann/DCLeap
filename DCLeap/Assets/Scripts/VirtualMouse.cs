@@ -25,7 +25,7 @@ namespace Leap.Unity
      *          |                 |                  |                   |     |                             |                                      |                   |
      *          |                 |                  |                   |     |                             |                                      |                   | 
      *          |-----------------|------------------|-------------------*    ---                            ---------------------------------------*                  ---
-     *                                                  in this case (2160;1440)                                       leapBottomMargin
+     *                                                  in this case for example (2160;1440)                 leapBottomMargin
      *                                                                                                       <---------------deltaX----------------->
      *        
      *  ------------------------------------------------------------
@@ -61,11 +61,7 @@ namespace Leap.Unity
         {
             float xSensitivity = PlayerPrefs.GetFloat("XSensitivity");
             int screenW = Screen.currentResolution.width;
-            //int xHMD = PlayerPrefs.GetInt("HMD_width");
-            //float xOffset =  3 * xHMD / 4;
             float xOffset = screenW / 2;
-            //float deltaX = xSensitivity;
-            //float xLinCoef = (screenW / (2.0f)) / (deltaX / 2 );
             float xLinCoef = screenW / xSensitivity;
             float handLeapPosX = Hand.transform.localPosition.x;             // current X position of hand in Unity's LeapMotion field of view
             float cursorPosX = xLinCoef * handLeapPosX + xOffset +XOffset();
@@ -76,10 +72,7 @@ namespace Leap.Unity
         {
             float ySensitivity = PlayerPrefs.GetFloat("YSensitivity");
             int screenH = Screen.currentResolution.height;
-            //int yHMD = PlayerPrefs.GetInt("HMD_height");
             float yOffset = screenH / 2;
-            //float deltaY = ySensitivity;
-            //float yLinCoef = (screenH / (2.0f)) / (deltaY / 2);
             float yLinCoef = screenH / ySensitivity;
             float handLeapPosY = Hand.transform.localPosition.y;         // current Y position of hand in Unity's LeapMotion field of view
             float cursorPosY = -yLinCoef * handLeapPosY + yOffset + YOffset();
@@ -114,10 +107,11 @@ namespace Leap.Unity
                 }
                 Win32.SetCursorPos((int)(adjustMargin + adjustDCS), (int)YLinearCalculation());   //mouse position will be blocked to its right side but free vertically
             }
-            else
-            {
-                Win32.SetCursorPos((int)XLinearCalculation(), (int)YLinearCalculation());
-            }
+            else  
+               {
+                   Win32.SetCursorPos((int)XLinearCalculation(), (int)YLinearCalculation());
+               }
+
         }
 
         void Update()

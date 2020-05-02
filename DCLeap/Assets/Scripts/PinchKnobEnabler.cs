@@ -15,6 +15,7 @@ namespace Leap.Unity
 
         public void KnobEnd()
         {
+            knob.ScrollRelease();  //to reset "counter" if second method is used
             knob.enabled = !knob.enabled;
             mouseScript.enabled = !mouseScript.enabled;
         }

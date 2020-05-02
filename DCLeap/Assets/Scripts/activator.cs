@@ -10,7 +10,7 @@ namespace Leap.Unity {
         private PinchDetector pinchDetector;
         private ExtendedFingerDetector extendedDetector;
         public InputSimulator sim;
-        VirtualMouse mouseScript;
+       // VirtualMouse mouseScript; 171
 
         int pinchOn;
         int indexOn;

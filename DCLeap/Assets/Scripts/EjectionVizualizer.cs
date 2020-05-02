@@ -18,7 +18,8 @@ namespace Leap.Unity
         public Material YellowMaterial;
         public Material RedMaterial;
         public TextMeshProUGUI ShownText;
-        public KeyStroke eject;
+        //public KeyStroke eject; //pour test
+        public Ejection eject;
         Vector3 originalPosition;
         Coroutine co;
 
@@ -32,13 +33,15 @@ namespace Leap.Unity
             originalPosition = new Vector3(SubObjectHandler.transform.position.x, SubObjectHandler.transform.position.y, SubObjectHandler.transform.position.z); //get start position of ejection handle bar
         }
 
-        IEnumerator CountDown()
+        //IEnumerator 
+            void CountDown()
         {
             ShownText.text = "Ejection imminent";
-            yield return new WaitForSeconds(1.0f);                 //wait 1 seconds when bar is grabbed before commanding the ejection, this let user reverse ejection decision during 1 second
-            ShownText.text = "Ejection !!!";
-            eject.EjectionCommand();
-            co = StartCoroutine(CountDown());
+           // yield return new WaitForSeconds(0.6f);  // (1.0f);                 //wait 1 seconds when bar is grabbed before commanding the ejection, this let user reverse ejection decision during 1 second
+           // ShownText.text = "Ejection !!!";
+            eject.Eject();
+           // eject.EjectionCommand();  //pour test
+            //co = StartCoroutine(CountDown());
         }
 
         public void ShowingHands()                                  //change the layer's mask to show hand in order to help user to grab the handle
@@ -77,12 +80,12 @@ namespace Leap.Unity
             }
         }
 
-        public void OverKnees()
+      /*  public void OverKnees()
         {
             MeshHandler.enabled = !MeshHandler.enabled;
             PullToEJect.enabled = !PullToEJect.enabled;
             SubObjectHandler.GetComponent<Renderer>().material = YellowMaterial;
-        }
+        }*/
 
         public void OverHead()
         {
@@ -91,26 +94,27 @@ namespace Leap.Unity
             SubObjectHandler.GetComponent<Renderer>().material = YellowMaterial;
         }
 
-        public void GraspKnees()
+     /*   public void GraspKnees()
         {
             SubObjectHandler.GetComponent<Renderer>().material = RedMaterial;
             co = StartCoroutine(CountDown());
-        }
+        }*/
 
         public void GraspHead()
         {
             SubObjectHandler.GetComponent<Renderer>().material = RedMaterial;
-            co = StartCoroutine(CountDown());
+            CountDown();
+            //co = StartCoroutine(CountDown());
         }
 
-        public void GraspKneesRelease()                     //revert to original position and text
+      /*  public void GraspKneesRelease()                     //revert to original position and text
         {
             StopAllCoroutines();
             ShownText.text = "Pull to eject !";
             SubObjectHandler.GetComponent<Renderer>().material = YellowMaterial;
             SubObjectHandler.transform.position = originalPosition;
             SubObjectHandler.transform.rotation = Quaternion.identity;
-        }
+        }*/
 
         public void GraspHeadRelease()                          //revert to original position and text
         {

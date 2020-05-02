@@ -221,6 +221,41 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!84 &3490426
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Overlay RenderTexture
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 417
+  m_Height: 633
+  m_AntiAliasing: 8
+  m_MipCount: -1
+  m_DepthFormat: 2
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 2
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &65776323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,7 +1284,7 @@ MonoBehaviour:
   YellowMaterial: {fileID: 2100000, guid: 18e867991a4b2a84c8ce30fa215f3df6, type: 2}
   RedMaterial: {fileID: 2100000, guid: 476f9ba3a9c7cca478a0795669edc1c6, type: 2}
   ShownText: {fileID: 615094333}
-  eject: {fileID: 435160906}
+  eject: {fileID: 0}
 --- !u!1 &457433396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,7 +2134,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 288
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 809712321}
+  m_TargetTexture: {fileID: 3490426}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -2183,7 +2218,7 @@ MonoBehaviour:
   steamVRHandlerPrefab: {fileID: 1513475555}
   autoUpdateOverlay: 1
   simulateInEditor: 0
-  overlayTexture: {fileID: 809712321}
+  overlayTexture: {fileID: 3490426}
   cameraForTexture: {fileID: 649517192}
   renderTexWidthOverride: 0
   renderTexHeightOverride: 0
@@ -2318,41 +2353,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!84 &809712321
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Overlay RenderTexture
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 417
-  m_Height: 633
-  m_AntiAliasing: 8
-  m_MipCount: -1
-  m_DepthFormat: 2
-  m_ColorFormat: 8
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 2
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &883469461
 GameObject:
   m_ObjectHideFlags: 0
@@ -4359,6 +4359,7 @@ GameObject:
   - component: {fileID: 1513475559}
   - component: {fileID: 1513475560}
   - component: {fileID: 1513475557}
+  - component: {fileID: 1513475561}
   m_Layer: 0
   m_Name: Unity_SteamVR_Handler
   m_TagString: Untagged
@@ -4388,12 +4389,34 @@ MonoBehaviour:
   debugLog: 0
   onSteamVRConnect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1513475561}
+        m_MethodName: OnSteamVRConnect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onSteamVRDisconnect:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1513475558}
         m_MethodName: VirtualMouseEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1513475561}
+        m_MethodName: OnSteamVRDisconnect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4471,6 +4494,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Quit: {fileID: 1513475558}
+--- !u!114 &1513475561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513475555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e20a7c7dcf0c80147acfa7358e5ade40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steamVRChecker: {fileID: 1513475556}
+  controller: {fileID: 649517191}
+  Lmouse: {fileID: 2023909799}
+  Rmouse: {fileID: 128588195}
 --- !u!4 &1548840995 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4594054966085544, guid: 8b0fa35b4cedcf243b23166070e235ec,
@@ -4865,6 +4904,7 @@ GameObject:
   - component: {fileID: 1670029675}
   - component: {fileID: 1670029673}
   - component: {fileID: 1670029678}
+  - component: {fileID: 1670029679}
   m_Layer: 0
   m_Name: Front_Clicker
   m_TagString: Untagged
@@ -4967,8 +5007,8 @@ MonoBehaviour:
       callback:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 1670029678}
-            m_MethodName: LSHIFT_U_Press
+          - m_Target: {fileID: 1670029675}
+            m_MethodName: CatapultShootTextEnabler
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -4978,8 +5018,8 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-          - m_Target: {fileID: 1670029675}
-            m_MethodName: CatapultShootTextEnabler
+          - m_Target: {fileID: 1670029679}
+            m_MethodName: Salute
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -4995,6 +5035,17 @@ MonoBehaviour:
           m_Calls:
           - m_Target: {fileID: 1670029675}
             m_MethodName: CatapultShootTextEnabler
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 1670029679}
+            m_MethodName: SaluteRelease
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -5041,6 +5092,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80964c0e330dba84db15ca22f7f3e794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1670029679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670029671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76e8aca313e64a4983234f55ae28348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1719559052
@@ -5396,7 +5459,7 @@ MonoBehaviour:
   touchActivationRadius: 0.15
   _autoGenerateLayers: 1
   _templateLayer:
-    layerIndex: 0
+    layerIndex: 8
   _interactionLayer:
     layerIndex: 9
   _interactionNoContactLayer:
@@ -6007,6 +6070,7 @@ GameObject:
   - component: {fileID: 1833453068}
   - component: {fileID: 1833453067}
   - component: {fileID: 1833453066}
+  - component: {fileID: 1833453074}
   m_Layer: 5
   m_Name: TopHead
   m_TagString: Untagged
@@ -6049,7 +6113,7 @@ MonoBehaviour:
   YellowMaterial: {fileID: 2100000, guid: 18e867991a4b2a84c8ce30fa215f3df6, type: 2}
   RedMaterial: {fileID: 2100000, guid: 476f9ba3a9c7cca478a0795669edc1c6, type: 2}
   ShownText: {fileID: 517152041}
-  eject: {fileID: 1833453067}
+  eject: {fileID: 0}
 --- !u!114 &1833453067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6115,8 +6179,8 @@ MonoBehaviour:
       callback:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 1833453066}
-            m_MethodName: GraspHead
+          - m_Target: {fileID: 1833453074}
+            m_MethodName: Eject
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -6268,6 +6332,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833453064}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1833453074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833453064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b218bd2e44fd948ad6358b7ee4e87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1843520457
 GameObject:
   m_ObjectHideFlags: 0
@@ -6436,17 +6512,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1908256763}
         m_MethodName: CatAlignTextEnabler
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1908256761}
-        m_MethodName: U_KeyUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

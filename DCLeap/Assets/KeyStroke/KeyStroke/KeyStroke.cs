@@ -18,296 +18,15 @@ namespace Leap.Unity
     {
         InputSimulator sim;
         Coroutine Co;
+        float waitTime;
+        float counter;
 
         void Start()
         {
             sim = new InputSimulator();
+            counter = 0.0f;
+            waitTime = 0.1f;
         }
-
-        /* ----------------------------------------
-          * Fx KEYS
-          -----------------------------------------*/
-        /*
-            //Press F1
-            public void F1_KeyDown()
-            {
-                sim.Keyboard.KeyDown(VirtualKeyCode.F1);
-            }
-            public void F1_KeyUp()
-            {
-                sim.Keyboard.KeyUp(VirtualKeyCode.F1);
-            }
-            public void F1_Press()
-            {
-                sim.Keyboard.KeyPress(VirtualKeyCode.F1);
-            }
-            IEnumerator F1_DelayedKeyDown()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyDown(VirtualKeyCode.F1);
-            }
-            IEnumerator F1_DelayedKeyUp()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyUp(VirtualKeyCode.F1);
-            }
-        //Press F2
-            public void F2_KeyDown()
-            {
-                sim.Keyboard.KeyDown(VirtualKeyCode.F2);
-            }
-            public void F2_KeyUp()
-            {
-                sim.Keyboard.KeyUp(VirtualKeyCode.F2);
-            }
-            public void F2_Press()
-            {
-                sim.Keyboard.KeyPress(VirtualKeyCode.F2);
-            }
-            IEnumerator F2_DelayedKeyDown()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyDown(VirtualKeyCode.F2);
-            }
-            IEnumerator F2_DelayedKeyUp()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyUp(VirtualKeyCode.F2);
-            }
-
-        //Press F3
-            public void F3_KeyDown()
-            {
-                sim.Keyboard.KeyDown(VirtualKeyCode.F3);
-            }
-            public void F3_KeyUp()
-            {
-                sim.Keyboard.KeyUp(VirtualKeyCode.F3);
-            }
-            IEnumerator F3_DelayedKeyDown()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyDown(VirtualKeyCode.F3);
-            }
-            IEnumerator F3_DelayedKeyUp()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyUp(VirtualKeyCode.F3);
-            }
-      
-        //Press F4
-            public void F4_KeyDown()
-            {
-                sim.Keyboard.KeyDown(VirtualKeyCode.F4);
-            }
-            public void F4_KeyUp()
-            {
-                sim.Keyboard.KeyUp(VirtualKeyCode.F4);
-            }
-            public void F4_Press()
-            {
-                sim.Keyboard.KeyPress(VirtualKeyCode.F4);
-            }
-            IEnumerator F4_DelayedKeyDown()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyDown(VirtualKeyCode.F4);
-            }
-            IEnumerator F4_DelayedKeyUp()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyUp(VirtualKeyCode.F4);
-            }
-
-        //Press F5
-            public void F5_KeyDown()
-            {
-                sim.Keyboard.KeyDown(VirtualKeyCode.F5);
-            }
-            public void F5_KeyUp()
-            {
-                sim.Keyboard.KeyUp(VirtualKeyCode.F5);
-            }
-            IEnumerator F5_DelayedKeyDown()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyDown(VirtualKeyCode.F5);
-            }
-            IEnumerator F5_DelayedKeyUp()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyUp(VirtualKeyCode.F5);
-            }
-
-        //Press F6
-            public void F6_KeyDown()
-            {
-                sim.Keyboard.KeyDown(VirtualKeyCode.F6);
-            }
-            public void F6_KeyUp()
-            {
-                sim.Keyboard.KeyUp(VirtualKeyCode.F6);
-            }
-            IEnumerator F6_DelayedKeyDown()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyDown(VirtualKeyCode.F6);
-            }
-            IEnumerator F6_DelayedKeyUp()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyUp(VirtualKeyCode.F6);
-            }
-
-        //Press F7
-            public void F7_KeyDown()
-            {
-                sim.Keyboard.KeyDown(VirtualKeyCode.F7);
-            }
-            public void F7_KeyUp()
-            {
-                sim.Keyboard.KeyUp(VirtualKeyCode.F7);
-            }
-            IEnumerator F7_DelayedKeyDown()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyDown(VirtualKeyCode.F7);
-            }
-            IEnumerator F7_DelayedKeyUp()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyUp(VirtualKeyCode.F7);
-            }
-
-        //Press F8
-            public void F8_KeyDown()
-            {
-                sim.Keyboard.KeyDown(VirtualKeyCode.F8);
-            }
-            public void F8_KeyUp()
-            {
-                sim.Keyboard.KeyUp(VirtualKeyCode.F8);
-            }
-            public void F8_Press()
-            {
-                sim.Keyboard.KeyPress(VirtualKeyCode.F8);
-            }
-            IEnumerator F8_DelayedKeyDown()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyDown(VirtualKeyCode.F8);
-            }
-            IEnumerator F8_DelayedKeyUp()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyUp(VirtualKeyCode.F8);
-            }
-
-        //Press F9
-            public void F9_KeyDown()
-            {
-                sim.Keyboard.KeyDown(VirtualKeyCode.F9);
-            }
-            public void F9_KeyUp()
-            {
-                sim.Keyboard.KeyUp(VirtualKeyCode.F9);
-            }
-            IEnumerator F9_DelayedKeyDown()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyDown(VirtualKeyCode.F9);
-            }
-            IEnumerator F9_DelayedKeyUp()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyUp(VirtualKeyCode.F9);
-            }
-
-        //Press F10
-            public void F10_KeyDown()
-            {
-                sim.Keyboard.KeyDown(VirtualKeyCode.F10);
-            }
-            public void F10_KeyUp()
-            {
-                sim.Keyboard.KeyUp(VirtualKeyCode.F10);
-            }
-            IEnumerator F10_DelayedKeyDown()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyDown(VirtualKeyCode.F10);
-            }
-            IEnumerator F10_DelayedKeyUp()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyUp(VirtualKeyCode.F10);
-            }
-
-        //Press F11
-            public void F11_KeyDown()
-            {
-                sim.Keyboard.KeyDown(VirtualKeyCode.F11);
-            }
-            public void F11_KeyUp()
-            {
-                sim.Keyboard.KeyUp(VirtualKeyCode.F11);
-            }
-            IEnumerator F11_DelayedKeyDown()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyDown(VirtualKeyCode.F11);
-            }
-            IEnumerator F11_DelayedKeyUp()
-
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyUp(VirtualKeyCode.F11);
-            }
-
-        //Press F12
-            public void F12_KeyDown()
-            {
-                sim.Keyboard.KeyDown(VirtualKeyCode.F12);
-            }
-            public void F12_KeyUp()
-            {
-                sim.Keyboard.KeyUp(VirtualKeyCode.F12);
-            }
-            IEnumerator F12_DelayedKeyDown()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyDown(VirtualKeyCode.F12);
-            }
-            IEnumerator F12_DelayedKeyUp()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyUp(VirtualKeyCode.F12);
-            }
-
-            //Press OEM_5
-            public void OEM_5_KeyDown()
-            {
-                sim.Keyboard.KeyDown(VirtualKeyCode.OEM_5);
-            }
-            public void OEM_5_KeyUp()
-            {
-                sim.Keyboard.KeyUp(VirtualKeyCode.OEM_5);
-            }
-            public void OEM_5_KeyPress()
-            {
-                sim.Keyboard.KeyPress(VirtualKeyCode.OEM_5);
-            }
-            IEnumerator OEM_5_DelayedKeyDown()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyDown(VirtualKeyCode.OEM_5);
-            }
-            IEnumerator OEM_5_DelayedKeyUp()
-            {
-                yield return new WaitForSeconds(0.2f);
-                sim.Keyboard.KeyUp(VirtualKeyCode.OEM_5);
-            }
-        */
 
         //Press HOME
         public void HOME_KeyDown()
@@ -358,7 +77,7 @@ namespace Leap.Unity
             }
             IEnumerator LSHIFT_DelayedKeyUp()
             {
-               yield return new WaitForSeconds(0.4f);  //***************
+               yield return new WaitForSeconds(1.0f);  //***************
                sim.Keyboard.KeyUp(VirtualKeyCode.LSHIFT);
             }
         
@@ -398,13 +117,13 @@ namespace Leap.Unity
             {
                 yield return new WaitForSeconds(0.2f);
                 sim.Keyboard.KeyDown(VirtualKeyCode.LCONTROL);
-                StopAllCoroutines();    //**
+                //StopAllCoroutines();    //**
             }
             IEnumerator LCTRL_DelayedKeyUp()
             {
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.8f);
                 sim.Keyboard.KeyUp(VirtualKeyCode.LCONTROL);
-                StopAllCoroutines();    //**
+                //StopAllCoroutines();    //**
             }
         
 
@@ -475,6 +194,7 @@ namespace Leap.Unity
         public void U_KeyDown()
             {
                 sim.Keyboard.KeyDown(VirtualKeyCode.VK_U);
+                StartCoroutine(U_DelayedKeyUp());
             }
             public void U_KeyUp()
             {
@@ -487,7 +207,7 @@ namespace Leap.Unity
             }
             IEnumerator U_DelayedKeyUp()
             {
-                yield return new WaitForSeconds(0.3f);  //****************************
+                yield return new WaitForSeconds(0.1f);  //****************************
                 sim.Keyboard.KeyUp(VirtualKeyCode.VK_U);
             }
  
@@ -502,12 +222,12 @@ namespace Leap.Unity
             }
             IEnumerator S_DelayedKeyDown()
             {
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.4f);
                 sim.Keyboard.KeyDown(VirtualKeyCode.VK_S);
             }
             IEnumerator S_DelayedKeyUp()
             {
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.6f);
                 sim.Keyboard.KeyUp(VirtualKeyCode.VK_S);
             }
         
@@ -535,7 +255,7 @@ namespace Leap.Unity
             
             IEnumerator CoroutineDestructor()
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(1.2f);
                StopAllCoroutines();
             }
 
@@ -543,53 +263,17 @@ namespace Leap.Unity
          LSHIFT MODIFIED KEYSTROKE
          ------------------------------------------------ */
 
-            IEnumerator CatShoot()
+        // LSHIFT  + LCTRL + S (SALUTE FOR SUPERCARRIER MODULE)
+        public void Catapult()
         {
-            sim.Keyboard.KeyDown(VirtualKeyCode.LSHIFT);
-            yield return new WaitForSeconds(0.1f);
-            sim.Keyboard.KeyDown(VirtualKeyCode.VK_U);
-            yield return new WaitForSeconds(0.1f);
-            sim.Keyboard.KeyUp(VirtualKeyCode.VK_U);
-            yield return new WaitForSeconds(0.1f);
-            sim.Keyboard.KeyUp(VirtualKeyCode.LSHIFT);
-            StopAllCoroutines();
-        }
-
-
-        // LSHIFT  + U
-        public void LSHIFT_U_Press()
-        {
-            CatShoot();
-           /* LSHIFT_KeyDown();
-            StartCoroutine(U_DelayedKeyDown());
-            StartCoroutine(U_DelayedKeyUp()); // ******
+            LSHIFT_KeyDown();
+            StartCoroutine(LCTRL_DelayedKeyDown());
+            StartCoroutine(S_DelayedKeyDown());
+            StartCoroutine(S_DelayedKeyUp()); // ******
+            StartCoroutine(LCTRL_DelayedKeyUp());
             StartCoroutine(LSHIFT_DelayedKeyUp());  // ********
             StartCoroutine(CoroutineDestructor());  //*********/
         }
-
-
-        // LCTRL  + E
-        public void LCTRL_E_Press()
-          {
-              LCTRL_KeyDown();
-              StartCoroutine(E_DelayedKeyDown());
-          }
-
-          public void LCTRL_E_Release()
-          {
-              E_KeyUp();
-              StartCoroutine(LCTRL_DelayedKeyUp());
-          }
-
-       /*  public void EjectionCommand()
-         {
-            for (int i=0; i < 3;i++)
-            {
-                LCTRL_E_Press();
-                LCTRL_E_Release();
-            }
-            StopAllCoroutines();  //**
-         }*/
 
         public void EjectionCommand()
         {
