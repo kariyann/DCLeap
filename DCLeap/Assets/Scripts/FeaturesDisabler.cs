@@ -17,6 +17,9 @@ namespace Leap.Unity
         public GameObject EjectionKnees;
         public GameObject EjectionOverhead;
         public GameObject Ejection;
+        public GameObject Kneeboard;
+        public GameObject PinchText;
+        public GameObject TriggerText;
 
         public GameObject LeftHand;
         public GameObject RightHand;
@@ -36,6 +39,7 @@ namespace Leap.Unity
             int autoStartValue = PlayerPrefs.GetInt("AutoStart");
             int recenterValue = PlayerPrefs.GetInt("Recenter");
             int ejection = PlayerPrefs.GetInt("Ejection");
+            int kneeboard = PlayerPrefs.GetInt("Kneeboard");
 
             if (showHands == 1)    // if you want to show your hands, the playerprefs value stored is 1, so this function change the hands's layer to be shown in the overlay
             {
@@ -84,7 +88,7 @@ namespace Leap.Unity
                 EjectionOverhead.SetActive(false);
             }
 
-            if (debugMouse == 0)
+          /*  if (debugMouse == 0)
             {
                 RHDebugMouse.SetActive(false);
             }
@@ -92,11 +96,23 @@ namespace Leap.Unity
             if (debugMouse == 0)
             {
                 LHDebugMouse.SetActive(false);
+            }*/
+
+            if (debugMouse == 0)
+            {
+                PinchText.SetActive(false);
+                TriggerText.SetActive(false);
+                RHDebugMouse.SetActive(false);
+                LHDebugMouse.SetActive(false);
             }
 
             if (ejection == 0)
             {
                 Ejection.SetActive(false);
+            }
+            if (kneeboard == 0)
+            {
+                Kneeboard.SetActive(false);
             }
         }
 

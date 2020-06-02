@@ -13,6 +13,7 @@ namespace Leap.Unity
 
         float waitTime;
         float counter = 0.0f;
+        float counterSensitivity;
         float updateCounter = 0.0f;
 
         float lhNeutral;
@@ -24,6 +25,7 @@ namespace Leap.Unity
             rhNeutral = PlayerPrefs.GetFloat("RH Neutral");
             waitTime = 0.1f;
             counter = 0.0f;
+            counterSensitivity = PlayerPrefs.GetFloat("Knob Sensitivity");
             sim = new InputSimulator();
         }
 
@@ -71,22 +73,22 @@ namespace Leap.Unity
 
             if (counter >0.0f && counter < 2.0f)
             {
-                factor = 1;
+                factor = (int)(1 * counterSensitivity);
             }
 
             if (counter > 2.0f && counter <3.0f)
             {
-                factor = 2;
+                factor = (int)(2*counterSensitivity);
             }
 
             if (counter > 3.0f && counter < 4.0f)
             {
-                factor = 4;
+                factor = (int)(4*counterSensitivity);
             }
 
             if (counter > 4.0f)
             {
-                factor = 8;
+                factor = (int)(8*counterSensitivity);
             }
 
             return factor;

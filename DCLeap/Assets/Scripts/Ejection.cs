@@ -24,49 +24,49 @@ public class Ejection : MonoBehaviour
 
     IEnumerator E1()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         sim.Keyboard.KeyDown(VirtualKeyCode.VK_E);
     }
 
     IEnumerator E2()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.10f);
         sim.Keyboard.KeyUp(VirtualKeyCode.VK_E);
     }
 
     IEnumerator E3()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.15f);
         sim.Keyboard.KeyDown(VirtualKeyCode.VK_E);
     }
 
     IEnumerator E4()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.20f);
         sim.Keyboard.KeyUp(VirtualKeyCode.VK_E);
     }
 
     IEnumerator E5()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.25f);
         sim.Keyboard.KeyDown(VirtualKeyCode.VK_E);
     }
 
     IEnumerator E6()
     {
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.30f);
         sim.Keyboard.KeyUp(VirtualKeyCode.VK_E);
     }
 
     IEnumerator LCTRL_KeyUp()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.35f);
         sim.Keyboard.KeyUp(VirtualKeyCode.LCONTROL);
     }
 
     IEnumerator CoroutineDestructor()
     {
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(0.40f);
         StopAllCoroutines();
     }
 

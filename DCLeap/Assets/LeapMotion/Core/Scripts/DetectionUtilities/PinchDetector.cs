@@ -46,8 +46,8 @@ namespace Leap.Unity {
 
         private void Start()
         {
-            ActivateDistance = 0.03f;
-            //ActivateDistance = PlayerPrefs.GetFloat("Activation sensitivity");
+            //ActivateDistance = 0.03f;
+            ActivateDistance = PlayerPrefs.GetFloat("Activation sensitivity");
             DeactivateDistance = ActivateDistance + 0.01f;
         }
 

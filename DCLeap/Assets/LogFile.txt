@@ -1,0 +1,55 @@
+2020/06/01_15:46:24
+*************************************************
+-------------- System Informations --------------
+*************************************************
+Windows 10  (10.0.0) 64bit  |  Desktop
+NVIDIA GeForce GTX 1080 Ti
+Screen_Width  :  1920
+Screen_Height :  1080
+*************************************************
+----------------- Options datas -----------------
+*************************************************
+X_Sensitivity :  1,730679
+Y_Sensitivity :  1,641028
+ShowHands :  0
+X_Offset :  0
+Y_Offset :  0
+Debug_Text :  1
+Debug_Mouse :  1
+Pinch :  1
+Index :  1
+LeftHandKnob_Neutral :  1,05
+RightHandKnob_Neutral :  -0,8
+PinchActivation_Sensitivity :  0,01070932
+CatAlign_HandSignal :  1
+CatShoot_HandSignal :  1
+Ejection_HandSignal :  1
+AutoStart_HandSignal :  1
+*************************************************
+--------------- Services Status  ----------------
+*************************************************
+  TIME   |              LeapMotion Status               |    SteamVR Status    | LHand cursor (x;y) | RHand cursor (x;y)
+15:46:25 | Connected to SteamVR
+15:46:26 | LeapMotion service is connected and running  |  STEAMVR is running  |       863;670      |      863;670
+15:46:27 | LeapMotion service is connected and running  |  STEAMVR is running  |       914;664      |      914;664
+15:46:28 | LeapMotion service is connected and running  |  STEAMVR is running  |       955;575      |      955;575
+15:46:29 | LeapMotion service is connected and running  |  STEAMVR is running  |       977;526      |      977;526
+15:46:30 | LeapMotion service is connected and running  |  STEAMVR is running  |       962;520      |      962;520
+15:46:31 | LeapMotion service is connected and running  |  STEAMVR is running  |       969;520      |      969;520
+15:46:32 | LeapMotion service is connected and running  |  STEAMVR is running  |       968;524      |      968;524
+15:46:33 | LeapMotion service is connected and running  |  STEAMVR is running  |       962;528      |      962;528
+15:46:34 | LeapMotion service is connected and running  |  STEAMVR is running  |       954;515      |      954;515
+15:46:35 | LeapMotion service is connected and running  |  STEAMVR is running  |       852;517      |      911;697
+15:46:36 | LeapMotion service is connected and running  |  STEAMVR is running  |       972;683      |      1021;512
+15:46:37 | LeapMotion service is connected and running  |  STEAMVR is running  |       811;584      |      1029;514
+15:46:38 | LeapMotion service is connected and running  |  STEAMVR is running  |       917;514      |      917;514
+15:46:39 | LeapMotion service is connected and running  |  STEAMVR is running  |       833;602      |      1028;514
+15:46:40 | LeapMotion service is connected and running  |  STEAMVR is running  |       926;596      |      1029;511
+15:46:41 | LeapMotion service is connected and running  |  STEAMVR is running  |       724;637      |      977;511
+15:46:42 | LeapMotion service is connected and running  |  STEAMVR is running  |       833;580      |      904;512
+15:46:43 | LeapMotion service is connected and running  |  STEAMVR is running  |       909;573      |      946;513
+15:46:44 | LeapMotion service is connected and running  |  STEAMVR is running  |       830;588      |      910;509
+15:46:45 | LeapMotion service is connected and running  |  STEAMVR is running  |       789;656      |      971;515
+15:46:46 | LeapMotion service is connected and running  |  STEAMVR is running  |       930;528      |      1126;640
+15:46:47 | LeapMotion service is connected and running  |  STEAMVR is running  |       958;564      |      958;564
+15:46:48 | LeapMotion service is connected and running  |  STEAMVR is running  |       965;614      |      965;614

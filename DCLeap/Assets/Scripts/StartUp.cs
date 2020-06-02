@@ -12,7 +12,7 @@ namespace Leap.Unity
 
         IEnumerator Timer()
         {
-            yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(1.5f);
             start.LCTRL_KeyDown();
             yield return new WaitForSeconds(0.1f);
             start.RCTRL_KeyDown();

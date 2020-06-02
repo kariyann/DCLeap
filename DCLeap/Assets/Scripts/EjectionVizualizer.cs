@@ -18,7 +18,6 @@ namespace Leap.Unity
         public Material YellowMaterial;
         public Material RedMaterial;
         public TextMeshProUGUI ShownText;
-        //public KeyStroke eject; //pour test
         public Ejection eject;
         Vector3 originalPosition;
         Coroutine co;

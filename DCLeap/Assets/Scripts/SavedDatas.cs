@@ -32,10 +32,6 @@ namespace Leap.Unity
         int pinchValue;
         public Toggle Index;
         int indexValue;
-       // public Slider PinchSensitivity; ****
-      //  float sensitivity;
-        //public Slider KnobSensitivity;
-       // float knobSensitivity;
 
         public Slider LHNeutral;
         float lhNeutral;
@@ -44,9 +40,9 @@ namespace Leap.Unity
 
         public Slider PinchActivation;
         float activationSensitivity;
-       // public Slider KnobMethod;
-       // int knobMethod;
 
+        public Slider KnobSensitivity;
+        float knobSensitivity;
 
         public Toggle CatAlign;
         int catAlignValue; 
@@ -58,6 +54,8 @@ namespace Leap.Unity
         int autoStartValue;
         // public Toggle Recenter; 171
         //int recenterValue; 171
+        public Toggle Kneeboard;
+        int kneeboardValue;
 
         public void Saved()
         {
@@ -148,17 +146,28 @@ namespace Leap.Unity
                 PlayerPrefs.SetInt("AutoStart", 0);
             }
 
-            // record the value of recenter if user want to use both closed hand to recenter VR view
-           /* if (Recenter.isOn == true)
+            // record the value of Kneeboard if user want to use kneeboard caller
+            if (Kneeboard.isOn == true)
             {
-                recenterValue = 1;
-                PlayerPrefs.SetInt("Recenter", 1);
+                kneeboardValue = 1;
+                PlayerPrefs.SetInt("Kneeboard", 1);
             }
             else
             {
-                recenterValue = 0;
-                PlayerPrefs.SetInt("Recenter", 0);
-            }   171 ------------------------------------*/
+                kneeboardValue = 0;
+                PlayerPrefs.SetInt("Kneeboard", 0);
+            }
+            // record the value of recenter if user want to use both closed hand to recenter VR view
+            /* if (Recenter.isOn == true)
+             {
+                 recenterValue = 1;
+                 PlayerPrefs.SetInt("Recenter", 1);
+             }
+             else
+             {
+                 recenterValue = 0;
+                 PlayerPrefs.SetInt("Recenter", 0);
+             }   171 ------------------------------------*/
 
             /* ----------------------------------------------------------------------------------------
              * In this section we manage the variables saved in the registry keys in Computer\HKEY_CURRENT_USER\Software\Leap4DCS\DCLeap
@@ -202,9 +211,6 @@ namespace Leap.Unity
             ySensitivity = YSensitivity.value;
             PlayerPrefs.SetFloat("YSensitivity", ySensitivity);
 
-            //  sensitivity = PinchSensitivity.value;        //    **********
-            //  PlayerPrefs.SetFloat("Pinch sensitivity", sensitivity);   //*****
-
             xOffset = (int)XOffset.value;
             PlayerPrefs.SetInt("XOffset", xOffset);
 
@@ -214,25 +220,13 @@ namespace Leap.Unity
             activationSensitivity = PinchActivation.value;
             PlayerPrefs.SetFloat("Activation sensitivity", activationSensitivity);
 
-          //  knobSensitivity = KnobSensitivity.value;
-          //  PlayerPrefs.SetFloat("Knob sensitivity", knobSensitivity);
+            knobSensitivity = KnobSensitivity.value;
+            PlayerPrefs.SetFloat("Knob Sensitivity", knobSensitivity);
 
             lhNeutral = LHNeutral.value;
             PlayerPrefs.SetFloat("LH Neutral", lhNeutral);
             rhNeutral = RHNeutral.value;
             PlayerPrefs.SetFloat("RH Neutral", rhNeutral);
-
-            //knobMethod = (int)KnobMethod.value;
-            //PlayerPrefs.SetInt("Knob method", knobMethod);
-
-            // string XHMD = HMDWidth.text; 171
-            // string YHMD = HMDHeight.text; 171
-
-            /*  int xHMD = int.Parse(XHMD);    //transform string HMD to integer in order to be saved as Int PlayerPref
-              int yHMD = int.Parse(YHMD);     
-
-              PlayerPrefs.SetInt("HMD_width", xHMD);
-              PlayerPrefs.SetInt("HMD_height", yHMD);   171 -------------------*/
         }
 
         void Start()
@@ -243,8 +237,6 @@ namespace Leap.Unity
              * next we have to convert these integers to strings
              * and finaly fill the Input Fields with these strings
              * -----------------------------------------------------------------------------------------------------------------------*/
-           // int Width = PlayerPrefs.GetInt("HMD_width");   171
-           // int Height = PlayerPrefs.GetInt("HMD_height");   171
 
             int showHands = PlayerPrefs.GetInt("Show Hands");
             int debugText = PlayerPrefs.GetInt("DebugText");
@@ -255,17 +247,16 @@ namespace Leap.Unity
             float ySensitivity = PlayerPrefs.GetFloat("YSensitivity");
             int xOffset = PlayerPrefs.GetInt("XOffset");
             int yOffset = PlayerPrefs.GetInt("YOffset");
-            // float sensitivity = PlayerPrefs.GetFloat("Pinch sensitivity");    //// ***********
-            //float knobSensitivity = PlayerPrefs.GetFloat("Knob sensitivity");
             float lhNeutral = PlayerPrefs.GetFloat("LH Neutral");
             float rhNeutral = PlayerPrefs.GetFloat("RH Neutral");
 
             float activationSensitivity = PlayerPrefs.GetFloat("Activation sensitivity");
-            //  int knobMethod = PlayerPrefs.GetInt("Knob method");  171
+            float knobSensitivity = PlayerPrefs.GetFloat("Knob Sensitivity");
             int catAlign = PlayerPrefs.GetInt("CatAlign");  
             int catShoot = PlayerPrefs.GetInt("CatShoot");
             int ejectionValue = PlayerPrefs.GetInt("Ejection");
             int autoStartValue = PlayerPrefs.GetInt("AutoStart");
+            int kneeboardValue = PlayerPrefs.GetInt("Kneeboard");
             //int recenterValue = PlayerPrefs.GetInt("Recenter");  171 
 
             /*-------------------------------------------------------------------------------------------------------------------------------------
@@ -286,19 +277,6 @@ namespace Leap.Unity
             XOffset.value = xOffset;
             YOffset.value = yOffset;
 
-
-         //   if (sensitivity == 0)         *************
-         //   {
-          //      sensitivity = 1.2f;
-         //   }
-          //  PinchSensitivity.value = sensitivity;
-
-           /* if (knobSensitivity == 0)
-            {
-                knobSensitivity = 2.0f;
-            }
-            KnobSensitivity.value = knobSensitivity;*/
-
             if (lhNeutral == 0)
             {
                 lhNeutral = 1.05f;
@@ -311,22 +289,17 @@ namespace Leap.Unity
             }
             RHNeutral.value = rhNeutral;
 
-           // KnobMethod.value = knobMethod;
-
             if (activationSensitivity == 0)
             {
                 activationSensitivity = 0.03f;
             }
             PinchActivation.value = activationSensitivity;
 
-            /*------------------------------------------------------------------------------------------------------------------------------------
-             * Set resolutions saved values
-             * ----------------------------------------------------------------------------------------------------------------------------------*/
-           // string StrxHMD = Width.ToString();   171
-           //  string StryHMD = Height.ToString();  171
-
-           /* HMDWidth.placeholder.GetComponent<Text>().text = StrxHMD;
-            HMDHeight.placeholder.GetComponent<Text>().text = StryHMD;                   171 ------*/
+            if (knobSensitivity == 0)
+            {
+                knobSensitivity = 1.0f;
+            }
+            KnobSensitivity.value = knobSensitivity;
 
             /*-------------------------------------------------------------------------------------------------------------------------------------
              * Set toggle boxes regarding saved data
@@ -385,11 +358,17 @@ namespace Leap.Unity
             }
             else AutoStart.isOn = false;
 
-           /* if (recenterValue == 1)
+            /* if (recenterValue == 1)
+             {
+                 Recenter.isOn = true;
+             }
+             else Recenter.isOn = false;         171 ------*/
+
+            if (kneeboardValue == 1)
             {
-                Recenter.isOn = true;
+                Kneeboard.isOn = true;
             }
-            else Recenter.isOn = false;         171 ------*/
+            else Kneeboard.isOn = false;
         }
     }
 }

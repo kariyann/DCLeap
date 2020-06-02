@@ -28,60 +28,38 @@ namespace Leap.Unity
             Co = StartCoroutine(LSHIFT_DelayedKeyUp());
         }
 
-      /*  IEnumerator LSHIFT_DelayedKeyDown()
-        {
-            yield return new WaitForSeconds(0.2f);
-            sim.Keyboard.KeyDown(VirtualKeyCode.LSHIFT);
-        }*/
         IEnumerator LSHIFT_DelayedKeyUp()
         {
-            yield return new WaitForSeconds(0.5f);  //***************
+            yield return new WaitForSeconds(0.25f);  
             sim.Keyboard.KeyUp(VirtualKeyCode.LSHIFT);
         }
 
-            // LCTRL
-      /*  public void LCTRL_KeyDown()
-        {
-            sim.Keyboard.KeyDown(VirtualKeyCode.LCONTROL);
-        }
-        public void LCTRL_KeyUp()
-        {
-            sim.Keyboard.KeyUp(VirtualKeyCode.LCONTROL);
-        }*/
         IEnumerator LCTRL_DelayedKeyDown()
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
             sim.Keyboard.KeyDown(VirtualKeyCode.LCONTROL);
         }
         IEnumerator LCTRL_DelayedKeyUp()
         {
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.20f);
             sim.Keyboard.KeyUp(VirtualKeyCode.LCONTROL);
         }
 
         // KEY S
-      /*  public void S_KeyDown()
-        {
-            sim.Keyboard.KeyDown(VirtualKeyCode.VK_S);
-        }
-        public void S_KeyUp()
-        {
-            sim.Keyboard.KeyUp(VirtualKeyCode.VK_S);
-        }*/
         IEnumerator S_DelayedKeyDown()
         {
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.10f);
             sim.Keyboard.KeyDown(VirtualKeyCode.VK_S);
         }
         IEnumerator S_DelayedKeyUp()
         {
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.15f);
             sim.Keyboard.KeyUp(VirtualKeyCode.VK_S);
         }
 
         IEnumerator CoroutineDestructor()
         {
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(0.30f);
             StopAllCoroutines();
         }
 
@@ -91,15 +69,16 @@ namespace Leap.Unity
             LSHIFT_KeyDown();
             StartCoroutine(LCTRL_DelayedKeyDown());
             StartCoroutine(S_DelayedKeyDown());
-            StartCoroutine(S_DelayedKeyUp()); // ******
+            StartCoroutine(S_DelayedKeyUp()); 
             StartCoroutine(LCTRL_DelayedKeyUp());
-            StartCoroutine(LSHIFT_DelayedKeyUp());  // ********
-            StartCoroutine(CoroutineDestructor());  //*********/
+            StartCoroutine(LSHIFT_DelayedKeyUp());
+            StartCoroutine(CoroutineDestructor()); 
         }   
         
         public void SaluteRelease()
         {
-            StopAllCoroutines();
+            //StopAllCoroutines();
+            StartCoroutine(CoroutineDestructor());
             sim.Keyboard.KeyPress(VirtualKeyCode.LSHIFT);
             sim.Keyboard.KeyPress(VirtualKeyCode.LCONTROL);
         }

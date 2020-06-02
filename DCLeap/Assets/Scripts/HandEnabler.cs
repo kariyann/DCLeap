@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WindowsInput;
+using WindowsInput.Native;
 
 namespace Leap.Unity
 {
@@ -13,12 +15,16 @@ namespace Leap.Unity
         public GameObject StartUp;
         public GameObject Recenter;
         public GameObject Ejection;
+        public GameObject Kneeboard;
+        public GameObject KneeboardActivator;
         VirtualMouse mouseScript;
         PinchDetector pinchScript;
         ExtendedFingerDetector fingerScript;
         bool MouseVizualizer;
         public GameObject CubeSelector;
         MeshRenderer mesh;
+        public Kneeboard kneeboardCommand;
+        InputSimulator sim;
 
         void Start()
         {
@@ -26,6 +32,41 @@ namespace Leap.Unity
             pinchScript = HandModel.GetComponent<PinchDetector>();
             fingerScript = HandModel.GetComponent<ExtendedFingerDetector>();
             mesh=CubeSelector.GetComponent<MeshRenderer>();
+            sim = new InputSimulator();
+        }
+
+        IEnumerator RShift_Up()
+        {
+            yield return new WaitForSeconds(0.5f);
+            sim.Keyboard.KeyUp(VirtualKeyCode.RSHIFT);
+        }
+
+        IEnumerator CoroutineDestructor()
+        {
+            yield return new WaitForSeconds(0.6f);
+            StopAllCoroutines();
+        }
+
+        public void KneeboardEnabler()
+        {
+            int kneeboard = PlayerPrefs.GetInt("Kneeboard");
+            if (kneeboard == 1)                             // enable/disable coordinated with red/green cube visibility to toggle kneeboard if gesture option is ticked in the main menu
+               {
+                   if (mesh.enabled == true)
+                   {
+                       Kneeboard.SetActive(true);
+                       KneeboardActivator.SetActive(true);
+                   }
+                   else if (mesh.enabled == false)
+                   {
+                     Kneeboard.SetActive(false);
+                    //KneeboardActivator.SetActive(true);
+                   // kneeboardCommand.KneeboardToggle();
+                       StartCoroutine(RShift_Up());
+                       StartCoroutine(CoroutineDestructor());
+                       kneeboardCommand.HideKneeboardCommands();
+                   }
+               }
         }
 
         public void Enabler()  // this function is called each time the palm facing gesture is recognized, this allow to enable/disable features 
@@ -42,6 +83,7 @@ namespace Leap.Unity
             int startUp = PlayerPrefs.GetInt("AutoStart");
             int recenter = PlayerPrefs.GetInt("Recenter");
             int ejection = PlayerPrefs.GetInt("Ejection");
+            
 
             mouseScript.enabled = !mouseScript.enabled;   // enable/disable mouse script that control mouse cursor
             mesh.enabled = !mesh.enabled;                 // enable/disable the cube's mesh, allow user to remember cursor state by showing red and green cube
@@ -84,7 +126,7 @@ namespace Leap.Unity
                 }
             }
 
-            if (catShoot == 1)                             // enable/disable coordinated with red/green cube visibility for salute for catapult launch only if gesture option is ticked in the main menu
+            if (catShoot == 1)                             // enable/disable coordinated with red/green cube visibility for salute to catapult launch only if gesture option is ticked in the main menu
             {
                 if (mesh.enabled == true)
                 {
